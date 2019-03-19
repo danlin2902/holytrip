@@ -12,10 +12,10 @@ Task.destroy_all
 Trip.destroy_all
 User.destroy_all
 
-jacob = User.new(name: "Jacob", phone: "+19143238695", email: "jacob.coccari@gmail.com")
-daniel = User.new(name: "Daniel", phone: "+14097182902", email: "danlin2902@yahoo.com")
-marco = User.new(name: "Marco", phone: "+39435205976", email: "marco.fun@gmail.com")
-regi = User.new(name: "Regi", phone: "+19143238695", email: "a.coccari@icloud.com")
+jacob = User.new(name: "Jacob", phone: "+19143238695", email: "jacob.coccari@gmail.com", password: "123456")
+daniel = User.new(name: "Daniel", phone: "+14097182902", email: "danlin2902@yahoo.com", password: "123456")
+marco = User.new(name: "Marco", phone: "+39435205976", email: "marco.fun@gmail.com", password: "123456")
+regi = User.new(name: "Regi", phone: "+19143238695", email: "a.coccari@icloud.com", password: "123456")
 jacob.save
 daniel.save
 marco.save
@@ -38,9 +38,9 @@ Participant.create(user: marco, trip: trip3, status: "confirmed")
 task_array = ["book plane tickets", "book the hostel", "buy museum tickets", "make sure your passport is valid", "get visa approved", "buy adapters for locale", "look for daytime activities", "check nightlife", "rent car"]
 
 task_array.each do |task|
-  trip = Trip.sample
-  Task.create(name: task, description: "please get this done", user: Participant.find(trip_id: trip.id), trip: trip, due_date: trip.start_date, done_at: trip)
+  trip = Trip.all.sample
+  user = Participant.where(trip_id: trip.id).all.sample.user
+  Task.create(name: task, description: "please get this done", user: user, trip: trip, due_date: trip.start_date, done_at: trip)
+  user.save
 end
-
-
 
