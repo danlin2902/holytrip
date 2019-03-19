@@ -1,4 +1,7 @@
-index.html.erb
+<!-- index.html.erb -->
+
+<h1> My Dashboard
+</h1>
 
 <% @trips.each do |trip| %>
 <%= trip.name %>
@@ -6,3 +9,9 @@ index.html.erb
 <%= participant.user.name %>
 <% end %>
 <% end %>
+
+
+<div>
+<%= button_to "Create a Trip", new_trip_path, :method => "get", class: "btn btn-flat" %>
+       </div>
+
