@@ -1,0 +1,8 @@
+index.html.erb
+
+<% @trips.each do |trip| %>
+<%= trip.name %>
+<% trip.participants.each do |participant| %>
+<%= participant.user.name %>
+<% end %>
+<% end %>
