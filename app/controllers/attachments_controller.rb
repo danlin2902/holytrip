@@ -1,34 +1,35 @@
 class AttachmentsController < ApplicationController
-  before_action :set_attachment
-  before_action :set_task
-
   def new
     @attachment = Attachment.new
   end
 
   def create
+    set_task
     @attachment = Attachment.new(attachment_params)
     @attachment.task = @task
     @attachment.save
-    # "insert Error Handling Notice" if fail to save
-  end
 
-  def update
-    @attachment.update ? @attachment.save : "insert Error Handling Notice"
+    redirect_to trip_tasks_path(task: @task)
   end
 
   def destroy
+    set_attachment
+    set_task
     @attachment.destroy
-    # insert alert for succesful delete
+    redirect_to tasks_path
   end
 
   private
 
   def set_task
-    @task = Task.find(params[:task_id])
+    @task = Task.find(params[:trip_id])
   end
 
   def set_attachment
-    params.require(:attachment).permit(:name, :description, :attachment_url, :task_id)
     @attachment = Attachment.find(params[:id])
+  end
+
+  def attachment_params
+    params.require(:attachment).permit(:name, :description, :attachment_url)
+  end
 end
