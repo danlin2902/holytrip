@@ -1,12 +1,10 @@
 class TasksController < ApplicationController
-  before_action :set_task
-  before_action :set_trip
-
   def index
     @tasks = Task.all
   end
 
   def show
+    set_task
   end
 
   def new
@@ -14,20 +12,27 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = task.new(task_params)
+    set_trip
+    @task = Task.new(task_params)
     @task.trip = @trip
     @task.user = current_user
     @task.save
-    # "insert Error Handling Notice" if fail to save
+
+    redirect_to trip_tasks_path(trip: @trip)
   end
 
   def update
-    @task.update ? @task.save : "insert Error Handling Notice"
+    set_task
+    set_trip
+    @task.update(task_params)
+    redirect_to trip_tasks_path(trip: @trip)
   end
 
   def destroy
+    set_task
+    set_trip
     @task.destroy
-    # insert alert for succesful delete
+    redirect_to trip_tasks_path(trip: @trip)
   end
 
   private
@@ -37,7 +42,11 @@ class TasksController < ApplicationController
   end
 
   def set_task
-    params.require(:task).permit(:name, :description, :due_date, :done_at, :user_id, :trip_id)
     @task = Task.find(params[:id])
+  end
+
+  def task_params
+    params.require(:task).permit(:name, :description, :due_date, :done_at, :user_id, :trip_id)
+
   end
 end

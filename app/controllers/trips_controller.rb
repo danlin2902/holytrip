@@ -1,5 +1,5 @@
 class TripsController < ApplicationController
-  before_action :find_trips, only: [ :show, :edit, :destroy, :update ]
+  before_action :set_trip, only: [:show, :edit, :destroy, :update]
 
   def index
     @trips = Trip.where(user: current_user)
@@ -41,7 +41,7 @@ class TripsController < ApplicationController
     params.require(:trip).permit(:name, :destination, :start_date, :end_date, :photo)
   end
 
-  def find_trips
+  def set_trip
     @trip = Trip.find(params[:id])
   end
 end
