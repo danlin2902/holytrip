@@ -26,7 +26,11 @@
   <h2>My Tasks</h2>
   <% current_user.tasks.each do |task| %>
   <ul>
-    <li><%= task.name %> | <%= task.trip.name %> | <%= task.due_date%></li>
+    <li>
+      <% raise %>
+      <%= task.name %> | <%=  task.trip.name  %> | <%= task.due_date%>
+
+    </li>
   </ul>
   <% end %>
 </div>
