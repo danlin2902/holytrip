@@ -33,10 +33,11 @@
 
 <script src="https://cdn.jsdelivr.net/npm/places.js@1.16.1"></script>
 <script>
-(function() {
+
+  (function() {
   var placesAutocomplete = places({
-    appId: 'ENV["ALGOLIA_SEARCH_APP_ID"]',
-    apiKey: 'ENV["ALGOLIA_SEARCH_API_KEY"]',
+    appId: '<%= ENV["ALGOLIA_SEARCH_APP_ID"] %>',
+    apiKey: '<%= ENV["ALGOLIA_SEARCH_API_KEY"] %>',
     container: document.querySelector('#input-map')
   });
 
