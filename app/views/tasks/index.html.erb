@@ -1,1 +1,48 @@
 <h1>Task Manager</h1>
+
+
+<div class="button-add-people">
+  <%= button_to "Add people", class: "btn btn-flat" %>
+</div>
+
+<div class="button-add-people">
+  <%= button_to "Add Tasks", class: "btn btn-flat" %>
+</div>
+
+<div class="unassigned-tasks">
+  <h3>Unassigned Tasks</h3>
+  <% @tasks.each do |task| %>
+  <ul>
+    <li>
+      <p> <%= task.name %> </p>
+      <p> <%= task.description %> </p>
+    </li>
+  </ul>
+  <% end %>
+</div>
+
+<div class="participant-tasks">
+  <h3>Participants</h3>
+  <% @trip.participants.each do |participant| %>
+  <ul>
+    <li>
+      <p> <%= participant.user.name %> </p>
+    </li>
+  </ul>
+  <% end %>
+</div>
+
+
+
+
+<div class="completed-tasks">
+  <h3>Completed Tasks</h3>
+  <ul>
+    <li>
+      <p>task</p>
+      <p>task</p>
+      <p>task</p>
+      <p>task</p>
+    </li>
+  </ul>
+</div>

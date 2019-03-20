@@ -5,7 +5,7 @@
 <div class="trip-index">
   <% @trips.each do |trip| %>
   <div class="trip-card">
-  <h3><%= link_to trip.name, trip_tasks_path(:trip_id) %></h3>
+  <h3><%= link_to trip.name, trip_tasks_path(trip) %></h3>
   <ul>
     <% trip.participants.each do |participant| %>
     <li><%= participant.user.name %></li>
