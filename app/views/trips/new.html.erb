@@ -1,1 +1,43 @@
-new.html.erb
+<div class="create-trip-first">
+
+  <%= simple_form_for @trip do |f| %>
+    <%= f.input :name %>
+    <%= f.input :start_date, as: :string, required: true, input_html: {class: "datepicker"} %>
+    <%= f.input :end_date, as: :string, required: true, input_html: {class: "datepicker"} %>
+
+</div>
+
+<div class="create-trip-second">
+
+  <p>Add friends</p>
+  <%= f.simple_fields_for :parts do |fnest| %>
+    <%= fnest.input :email %>
+  <% end %>
+
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+
+</div>
+
+
+<div class="create-trip-second">
+
+  <%= f.input :destination %>
+
+  <div
+    id="map"
+    style="width: 100%;
+    height: 300px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
+
+
+</div>
+
+
+
+
+
+  <%= f.submit "Create trip", class: "btn btn-flat" %>
+  <% end %>
