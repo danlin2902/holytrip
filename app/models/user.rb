@@ -7,4 +7,12 @@ class User < ApplicationRecord
   has_many :tasks
   has_many :attachments, through: :tasks
   has_many :participants
+  after_create :send_welcome_email
+
+  private
+
+  def send_welcome_email
+    self.save
+    UserMailer.welcome(self).deliver_now
+  end
 end
