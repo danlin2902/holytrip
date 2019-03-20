@@ -10,7 +10,17 @@ class TripsController < ApplicationController
 
   def new
     @trip = Trip.new
+
+    # @trip = Trip.where.not(latitude: nil, longitude: nil)
+
+    # @markers = @trips.map do |trip|
+    #   {
+    #     lat: trip.latitude,
+    #     lng: trip.longitude
+    #   }
+    # end
   end
+
 
   def create
     @trip = Trip.new(trip_params)
