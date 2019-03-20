@@ -30,14 +30,14 @@ trip2.save
 trip3.save
 trip4.save
 
-Participant.create(user: jacob, trip: trip1, status: "pending")
-Participant.create(user: regi, trip: trip1, status: "confirmed")
-Participant.create(user: daniel, trip: trip2, status: "denied")
-Participant.create(user: marco, trip: trip2, status: "confirmed")
-Participant.create(user: daniel, trip: trip3, status: "denied")
-Participant.create(user: marco, trip: trip3, status: "confirmed")
-Participant.create(user: daniel, trip: trip4, status: "denied")
-Participant.create(user: marco, trip: trip4, status: "confirmed")
+Participant.create(user: jacob, trip: trip1, status: "pending", email: jacob.email)
+Participant.create(user: regi, trip: trip1, status: "confirmed", email: regi.email)
+Participant.create(user: daniel, trip: trip2, status: "denied", email: daniel.email)
+Participant.create(user: marco, trip: trip2, status: "confirmed", email: marco.email)
+Participant.create(user: daniel, trip: trip3, status: "denied", email: daniel.email)
+Participant.create(user: marco, trip: trip3, status: "confirmed", email: marco.email)
+Participant.create(user: daniel, trip: trip4, status: "denied", email: daniel.email)
+Participant.create(user: marco, trip: trip4, status: "confirmed", email: marco.email)
 
 task_array = ["book plane tickets", "book the hostel", "buy museum tickets", "make sure your passport is valid", "get visa approved", "buy adapters for locale", "look for daytime activities", "check nightlife", "rent car"]
 
