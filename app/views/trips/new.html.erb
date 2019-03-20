@@ -5,11 +5,6 @@
     <%= f.input :start_date, as: :string, required: true, input_html: {class: "datepicker"} %>
     <%= f.input :end_date, as: :string, required: true, input_html: {class: "datepicker"} %>
 
-    <%= f.simple_fields_for :participant do |p| %>
-      <%= p.input :email %>
-    <% end %>
-
-
   <%= f.input :destination, input_html: {id: "input-map", type: "search", name: "trip[destination]", class: "form-control", placeholder: "Where are we going?"} %>
 
 
@@ -17,7 +12,15 @@
 
 <div class="create-trip-second">
 
+
 <!-- MAP DIV -->
+
+
+<div class="create-trip-second">
+
+
+
+
 
 <div id="map-example-container"></div>
 
@@ -130,6 +133,9 @@
 
 
 </div>
+
+
+
 
 
   <%= f.submit "Create trip", class: "btn btn-flat" %>
