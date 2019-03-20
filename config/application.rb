@@ -15,6 +15,7 @@ module Holytrip
         end
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
+    config.active_job.queue_adapter = :sidekiq
 
     config.action_mailer.delivery_method = :postmark
     config.action_mailer.postmark_settings = { :api_token => "705848e5-42bb-4d28-b23c-b413097568ac" }
