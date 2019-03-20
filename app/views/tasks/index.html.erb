@@ -14,8 +14,15 @@
   <% @tasks.each do |task| %>
   <ul>
     <li>
-      <p> <%= task.name %> </p>
+      <h6> <%= task.name %> </h6>
       <p> <%= task.description %> </p>
+
+<% if task.attachments.present? %>
+      <% task.attachments.each do |attach| %>
+        <%= attach.name %>
+      <% end %>
+<% end %>
+
     </li>
   </ul>
   <% end %>
