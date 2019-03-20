@@ -3,7 +3,7 @@ class Trip < ApplicationRecord
   has_many :tasks
   has_many :attachments, through: :tasks
   has_many :participants
-
+  accepts_nested_attributes_for :participants
   mount_uploader :photo, PhotoUploader
 
   # geocoded_by :destination

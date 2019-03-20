@@ -9,11 +9,11 @@
 
 <div class="create-trip-second">
 
-  <p>Add friends</p>
-  <%= f.simple_fields_for :parts do |fnest| %>
-    <%= fnest.input :email %>
+<%= simple_form_for @trip do |m| %>
+  <%= m.simple_fields_for :participants do |p| %>
+    <%= p.input : %>
   <% end %>
-
+<% end %>
 <!-- MAP DIV -->
 
 
