@@ -44,7 +44,11 @@ task_array = ["book plane tickets", "book the hostel", "buy museum tickets", "ma
 task_array.each do |task|
   trip = Trip.all.sample
   user = Participant.where(trip_id: trip.id).all.sample.user
-  Task.create(name: task, description: "please get this done", user: user, trip: trip, due_date: trip.start_date, done_at: trip)
+  task = Task.create(name: task, description: "please get this done", user: user, trip: trip, due_date: trip.start_date, done_at: trip)
   user.save
 end
 
+Attachment.create(name: "Yellow Hostel", task: Task.all.sample, description: "hostel purchased", attachment_url: "https://i.ytimg.com/vi/YQM0MdvrFW0/maxresdefault.jpg")
+Attachment.create(name: "Return Flights", task: Task.all.sample, description: "booked flights", attachment_url: "https://everybodyhatesatourist.net/wp-content/uploads/2015/06/american-reservation-codeshare.png")
+Attachment.create(name: "duomo", task: Task.all.sample, description: "bought duomo tickets", attachment_url: "https://i.ytimg.com/vi/YQM0MdvrFW0/maxresdefault.jpg")
+Attachment.create(name: "Hostel Milan", task: Task.all.sample, description: "hostel booked", attachment_url: "https://www.yogawinetravel.com/wp-content/uploads/2016/05/Florence-Italy-Duomo-ticket.jpg")
