@@ -1,4 +1,3 @@
-$redis = Redis.new
 
 url = Rails.env.production? ? ENV["REDISCLOUD_URL"] : ENV["REDIS_URL"]
 
