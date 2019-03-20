@@ -36,6 +36,8 @@ Participant.create(user: daniel, trip: trip2, status: "denied")
 Participant.create(user: marco, trip: trip2, status: "confirmed")
 Participant.create(user: daniel, trip: trip3, status: "denied")
 Participant.create(user: marco, trip: trip3, status: "confirmed")
+Participant.create(user: daniel, trip: trip4, status: "denied")
+Participant.create(user: marco, trip: trip4, status: "confirmed")
 
 task_array = ["book plane tickets", "book the hostel", "buy museum tickets", "make sure your passport is valid", "get visa approved", "buy adapters for locale", "look for daytime activities", "check nightlife", "rent car"]
 
