@@ -13,6 +13,6 @@ class User < ApplicationRecord
 
   def send_welcome_email
     self.save
-    UserMailer.welcome(self).deliver_now
+    UserMailer.welcome(self).deliver_later
   end
 end
