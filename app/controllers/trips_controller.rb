@@ -10,13 +10,16 @@ class TripsController < ApplicationController
 
   def new
     @trip = Trip.new
+    @participant = Participant.new
   end
-
 
   def create
     @trip = Trip.new(trip_params)
     @trip.user = current_user
     if @trip.save
+      entries = params["trip"]["participant"]["email"]
+      part = Participant.new(email: entries, trip: @trip, status: "incomplete")
+      part.save
       redirect_to trip_path(@trip)
     else
       render :new
