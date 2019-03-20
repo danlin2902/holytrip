@@ -4,9 +4,14 @@
     <%= f.input :name %>
     <%= f.input :start_date, as: :string, required: true, input_html: {class: "datepicker"} %>
     <%= f.input :end_date, as: :string, required: true, input_html: {class: "datepicker"} %>
+
     <%= f.simple_fields_for :participant do |p| %>
       <%= p.input :email %>
     <% end %>
+
+
+  <%= f.input :destination, input_html: {id: "input-map", type: "search", name: "trip[destination]", class: "form-control", placeholder: "Where are we going?"} %>
+
 
 </div>
 
@@ -15,19 +20,20 @@
 <!-- MAP DIV -->
 
 <div id="map-example-container"></div>
-  <%= f.input :destination, input_html: {id: "input-map", type: "search", class: "form-control", placeholder: "Where are we going?"} %>
 
 
 <style>
   #map-example-container {height: 300px};
 </style>
 
+
 <script src="https://cdn.jsdelivr.net/npm/places.js@1.16.1"></script>
 <script>
-(function() {
+
+  (function() {
   var placesAutocomplete = places({
-    appId: 'ENV["ALGOLIA_SEARCH_APP_ID"]',
-    apiKey: 'ENV["ALGOLIA_SEARCH_API_KEY"]',
+    appId: '<%= ENV["ALGOLIA_SEARCH_APP_ID"] %>',
+    apiKey: '<%= ENV["ALGOLIA_SEARCH_API_KEY"] %>',
     container: document.querySelector('#input-map')
   });
 
@@ -114,7 +120,6 @@
   }
 })();
 </script>
-
 <!-- END OF MAP DIV -->
 
   <%= f.input :photo %>

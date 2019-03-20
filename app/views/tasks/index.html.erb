@@ -14,8 +14,19 @@
   <% @tasks.each do |task| %>
   <ul>
     <li>
-      <p> <%= task.name %> </p>
+      <h6> <%= task.name %> </h6>
       <p> <%= task.description %> </p>
+
+      <% if task.attachments.present? %>
+        <% task.attachments.each do |attach| %>
+        <p>
+          Attachment: <%= link_to attach.name, attach.attachment_url %>
+        </p>
+        <% end %>
+      <% else %>
+        <%= button_to "Attach file", class: "btn btn-flat" %>
+      <% end %>
+
     </li>
   </ul>
   <% end %>
