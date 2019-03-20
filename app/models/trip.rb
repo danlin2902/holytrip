@@ -5,4 +5,7 @@ class Trip < ApplicationRecord
   has_many :participants
 
   mount_uploader :photo, PhotoUploader
+
+  geocoded_by :destination
+  after_validation :geocode, if: :will_save_change_to_address?
 end
