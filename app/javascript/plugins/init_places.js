@@ -26,28 +26,5 @@ form.addEventListener("keyup", (event) => {
 
 
 
-// const list = document.querySelector('#results');
-
-// const autoComplete = (query) => {
-//   fetch(`https://wagon-dictionary.herokuapp.com/autocomplete/${query}`)
-//     .then(response => response.json())
-//     .then((data) => {
-//       data.words.forEach((word) => {
-//         const country = `<li>
-//           <p>${word}</p>
-//         </li>`;
-//         list.insertAdjacentHTML("beforeend", country);
-//       });
-//     });
-// };
-
-// const form = document.querySelector(".search");
-// form.addEventListener('keyup', (event) => {
-//   event.preventDefault();
-//   // results.innerHTML = '';
-//   list.innerHTML = "";
-//   autoComplete(form.value);
-// });
-
 
 export { searchAlgoliaPlaces };

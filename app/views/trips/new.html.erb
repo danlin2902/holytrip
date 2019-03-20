@@ -35,8 +35,8 @@
 <script>
 (function() {
   var placesAutocomplete = places({
-    appId: 'plAYJ05MSY9K',
-    apiKey: 'c8cbb97f0c2f2406f6c222baf690ca68',
+    appId: 'ENV["ALGOLIA_SEARCH_APP_ID"]',
+    apiKey: 'ENV["ALGOLIA_SEARCH_API_KEY"]',
     container: document.querySelector('#input-map')
   });
 
