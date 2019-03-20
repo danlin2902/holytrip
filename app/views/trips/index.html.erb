@@ -27,9 +27,7 @@
   <% current_user.tasks.each do |task| %>
   <ul>
     <li>
-      <% raise %>
       <%= task.name %> | <%=  task.trip.name  %> | <%= task.due_date%>
-
     </li>
   </ul>
   <% end %>
