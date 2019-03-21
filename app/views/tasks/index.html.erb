@@ -73,23 +73,23 @@
 
 <!-- MODAL BOX -->
 
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">new task</button>
+<button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">new task</button>
 <!--  -->
-<div id="id01" class="modal">
+<div id="id02" class="modal">
   <div class="modal-content">
   <!--  -->
   <%= simple_form_for [@trip, @task] do |f| %>
     <%= f.input :name %>
 
     <%= f.input :description, as: :text %>
-    <%= f.input :due_date, as: :string, required: true, input_html: {class: "datepicker"} %>
+    <%= f.input :due_date, as: :datetime, required: true, input_html: {class: "datepicker"} %>
     <%= button_to "Attach file", class: "btn btn-flat" %>
     <%= f.submit "Create new task", class: "btn btn-primary" %>
 
     <% end %>
     <!--  -->
   <div class="clearfix">
-        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="button" onclick="document.getElementById('id01).style.display='none'" class="cancelbtn">Cancel</button>
 
   </div>
   </div>
@@ -121,7 +121,7 @@
       // let ui = document.querySelector("");
       // var id = $(li.draggable).attr('id');
       // console.log(id);
-      debugger;
+
     }
   });
 </script>
