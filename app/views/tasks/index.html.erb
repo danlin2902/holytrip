@@ -16,7 +16,11 @@
   <ul>
     <div class="droppable-cards">
       <li>
-        <p> <%= participant.user.name if !participant.user.nil?%> </p>
+        <% if !participant.user.nil? %>
+        <p> <%= participant.user.name%> </p>
+        <% else %>
+        <%= "#{participant.email}, status: #{participant.status}" %>
+        <% end %>
         <ul>
           <% @tasks.each do |task| %>
           <% if task.user_id == participant.user_id %>

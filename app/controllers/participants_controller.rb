@@ -7,13 +7,9 @@ class ParticipantsController < ApplicationController
   def create
     @participant = Participant.new(participant_params)
     @participant.trip = Trip.find(params[:trip_id])
-
     random_pass = SecureRandom.hex(10)
-
     user = User.create(email: params[:email], password: random_pass, password_confirmation: random_pass)
-
     @participant.user = user
-
     if @participant.save
       redirect_to trip_path(@participant.trip)
     else
