@@ -9,36 +9,38 @@
   <%= button_to "Add Tasks", class: "btn btn-flat" %>
 </div>
 
-<div class="unassigned-tasks">
-  <h3>Unassigned Tasks</h3>
-  <% @tasks.each do |task| %>
-  <ul>
-    <li>
-      <h6> <%= task.name %> </h6>
-      <p> <%= task.description %> </p>
+<!--  -->
 
-      <% if task.attachments.present? %>
-        <% task.attachments.each do |attach| %>
-        <p>
-          Attachment: <%= link_to attach.name, attach.attachment_url %>
-        </p>
-        <% end %>
-      <% else %>
-        <%= button_to "Attach file", class: "btn btn-flat" %>
-      <% end %>
-
-    </li>
-  </ul>
-  <% end %>
-</div>
-
-<div class="participant-tasks">
-  <h3>Participants</h3>
+<div class="participants">
   <% @trip.participants.each do |participant| %>
   <ul>
-    <li>
-      <p> <%= participant.user.name %> </p>
-    </li>
+    <div class="droppable-cards">
+      <li>
+        <p> <%= participant.user.name %> </p>
+        <ul>
+          <% @tasks.each do |task| %>
+          <% if task.user_id == participant.user_id %>
+          <div class="draggable-cards">
+            <li>
+              <h6> <%= task.name %> </h6>
+              <p> <%= task.description %> </p>
+
+              <% if task.attachments.present? %>
+              <% task.attachments.each do |attach| %>
+              <p>
+                Attachment: <%= link_to attach.name, attach.attachment_url %>
+              </p>
+              <% end %>
+              <% else %>
+              <%= button_to "Attach file", class: "btn btn-flat" %>
+              <% end %>
+            </li>
+          </div>
+          <% end %>
+          <% end %>
+        </ul>
+      </li>
+    </div>
   </ul>
   <% end %>
 </div>
@@ -50,10 +52,22 @@
   <h3>Completed Tasks</h3>
   <ul>
     <li>
-      <p>task</p>
-      <p>task</p>
-      <p>task</p>
-      <p>task</p>
+      <p>Empty</p>
+
     </li>
   </ul>
 </div>
+
+
+
+<script>
+  $( ".draggable-cards" ).draggable({
+    helper: 'clone'
+  });
+
+  $( ".droppable-cards" ).droppable({
+    drop: function() {
+      debugger
+    }
+  });
+</script>
