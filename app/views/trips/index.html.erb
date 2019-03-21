@@ -6,6 +6,7 @@
   <% @trips.each do |trip| %>
   <div class="trip-card">
   <h3><%= link_to trip.name, trip_tasks_path(trip) %></h3>
+  <h5> <%= trip.destination %> </h5>
   <ul>
     <% trip.participants.each do |participant| %>
     <li><%= participant.user.name if !participant.user.nil? %></li>
