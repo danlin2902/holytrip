@@ -8,7 +8,7 @@
   <h3><%= link_to trip.name, trip_tasks_path(trip) %></h3>
   <ul>
     <% trip.participants.each do |participant| %>
-    <li><%= participant.user.name %></li>
+    <li><%= participant.user.name if !participant.user.nil? %></li>
   <% end %>
   </ul>
   </div>
