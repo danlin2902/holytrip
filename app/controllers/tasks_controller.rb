@@ -20,21 +20,21 @@ class TasksController < ApplicationController
     @task.user = current_user
     @task.save
 
-    redirect_to trip_tasks_path(trip: @trip)
+    redirect_to trip_tasks_path(@trip)
   end
 
   def update
     set_task
     set_trip
     @task.update(task_params)
-    redirect_to trip_tasks_path(trip: @trip)
+    redirect_to trip_tasks_path(@trip)
   end
 
   def destroy
     set_task
     set_trip
     @task.destroy
-    redirect_to trip_tasks_path(trip: @trip)
+    redirect_to trip_tasks_path(@trip)
   end
 
   private
