@@ -14,9 +14,8 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.invite.subject
   #
-  def invite
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+  def invite(participant)
+    @participant = participant
+    mail(to: @participant.email, subject: "You have been invited to")
   end
 end
