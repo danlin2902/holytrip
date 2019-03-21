@@ -17,8 +17,6 @@
     @trip = Trip.new(trip_params)
     @trip.user = current_user
     if @trip.save
-      part = Participant.new(email: @trip.user.email, trip: @trip, status: "joined")
-      part.save
       entries = params["emails"]
       entries.each do |email|
         unless email == ""
