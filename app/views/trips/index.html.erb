@@ -6,6 +6,9 @@
   <% @trips.each do |trip| %>
   <div class="trip-card">
   <h3><%= link_to trip.name, trip_tasks_path(trip) %></h3>
+  <%= link_to "Delete trip", trip_path(trip),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
   <h5> <%= trip.destination %> </h5>
   <ul>
     <% trip.participants.each do |participant| %>

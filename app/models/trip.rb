@@ -1,8 +1,8 @@
 class Trip < ApplicationRecord
   belongs_to :user
-  has_many :tasks
-  has_many :attachments, through: :tasks
-  has_many :participants
+  has_many :tasks, dependent: :destroy
+  has_many :attachments, through: :tasks, dependent: :destroy
+  has_many :participants, dependent: :destroy
   accepts_nested_attributes_for :participants
   mount_uploader :photo, PhotoUploader
 
