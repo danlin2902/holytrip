@@ -5,7 +5,8 @@ class ParticipantsController < ApplicationController
   end
 
   def create
-    @participant = Participant.new(participant_params)
+
+    @participant = Participant.new(email: params[:email], status: "pending")
     @participant.trip = Trip.find(params[:trip_id])
     random_pass = SecureRandom.hex(10)
     user = User.create(email: params[:email], password: random_pass, password_confirmation: random_pass)
@@ -31,7 +32,11 @@ class ParticipantsController < ApplicationController
 
   private
 
-  def participant_params
-    params.require(:participant).permit(:status)
+  # def participant_params
+  #   params.require(:participant).permit(:status)
+  # end
+
+  def email
+     params[:email]
   end
 end
