@@ -39,6 +39,9 @@
   end
 
   def destroy
+    @trip.attachments.destroy_all
+    @trip.tasks.destroy_all
+    @trip.participants.destroy_all
     @trip.destroy
     redirect_to trips_path
   end
