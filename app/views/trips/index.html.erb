@@ -31,7 +31,7 @@
   <% current_user.tasks.each do |task| %>
   <ul>
     <li>
-      <%= task.name %> | <%=  task.trip.name  %> | <%= task.due_date%>
+      <%= link_to  task.name, trip_tasks_path(task.trip) %> | <%= link_to task.trip.name, trip_tasks_path(task.trip)  %> | <%= task.due_date%>
     </li>
   </ul>
   <% end %>
