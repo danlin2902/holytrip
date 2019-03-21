@@ -1,7 +1,6 @@
-
 url = Rails.env.production? ? ENV["REDISCLOUD_URL"] : ENV["REDIS_URL"]
 
-if url
+if Rails.env.production?
   Sidekiq.configure_server do |config|
     config.redis = { url: url }
   end

@@ -4,8 +4,13 @@
     <%= f.input :name %>
     <%= f.input :start_date, as: :string, required: true, input_html: {class: "datepicker"} %>
     <%= f.input :end_date, as: :string, required: true, input_html: {class: "datepicker"} %>
+  <%= f.input :destination, input_html: {id: "input-map", type: "serch", name: "trip[destination]", class: "form-control", placeholder: "Where are we going?"} %>
 
-  <%= f.input :destination, input_html: {id: "input-map", type: "search", name: "trip[destination]", class: "form-control", placeholder: "Where are we going?"} %>
+  <% 10.times do |i| %>
+
+    <%= text_field_tag 'emails[]', nil, class: 'special_input' %>
+  <% end %>
+
 
 
 </div>

@@ -1,4 +1,4 @@
-class TripsController < ApplicationController
+  class TripsController < ApplicationController
   before_action :set_trip, only: [:show, :edit, :destroy, :update]
 
   def index
@@ -10,12 +10,19 @@ class TripsController < ApplicationController
 
   def new
     @trip = Trip.new
+    @participant = Participant.new
   end
 
   def create
     @trip = Trip.new(trip_params)
     @trip.user = current_user
     if @trip.save
+      entries = params["emails"]
+      entries.each do |email|
+        part = Participant.new(email: email, trip: @trip, status: "incomplete")
+        part.save
+      end
+
       redirect_to trip_path(@trip)
     else
       render :new
