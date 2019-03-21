@@ -30,9 +30,6 @@
 
 
 
-<div class="button-add-people">
-  <%= button_to "Add Tasks", class: "btn btn-flat" %>
-</div>
 
 <!-- CARDS  -->
 
@@ -42,7 +39,7 @@
     <div class="droppable-cards">
       <li>
         <% if !participant.user.nil? %>
-        <p> <%= participant.user.name%> </p>
+        <h4> <%= participant.user.name%> </h4>
         <% else %>
         <%= "#{participant.email}, status: #{participant.status}" %>
         <% end %>
@@ -57,7 +54,7 @@
               <% if task.attachments.present? %>
               <% task.attachments.each do |attach| %>
               <p>
-                Attachment: <%= link_to attach.name, attach.attachment_url %>
+                Attachment: <%= link_to attach.name, attach.attachment_url %>   <%= link_to "delete attach", method: :delete, remote: true %>
               </p>
               <% end %>
               <% else %>
