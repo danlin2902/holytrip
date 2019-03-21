@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   def index
     set_trip
-    @tasks = Task.all
+    @tasks = Task.where(trip_id: @trip)
   end
 
   def show
