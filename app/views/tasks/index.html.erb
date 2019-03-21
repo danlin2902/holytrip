@@ -44,16 +44,28 @@
 </div>
 
 
+<!-- modal box -->
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">new task</button>
+<!--  -->
+<div id="id01" class="modal">
+  <div class="modal-content">
+  <!--  -->
+  <%= simple_form_for @task do |f| %>
+    <%= f.input :name %>
+
+    <% f.input :description, as: :text %>
+    <%= f.input :due_date, as: :string, required: true, input_html: {class: "datepicker"} %>
+    <%= f.submit "Create new task", class: "btn btn-primary" %>
+
+    <% end %>
+    <!--  -->
+  <div class="clearfix">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="submit" class="signupbtn">Sign Up</button>
+  </div>
+  </div>
 
 
-<div class="completed-tasks">
-  <h3>Completed Tasks</h3>
-  <ul>
-    <li>
-      <p>task</p>
-      <p>task</p>
-      <p>task</p>
-      <p>task</p>
-    </li>
-  </ul>
+
 </div>
+

@@ -2,6 +2,7 @@ class TasksController < ApplicationController
   def index
     set_trip
     @tasks = Task.all
+    @task = Task.new
   end
 
   def show
