@@ -1,15 +1,40 @@
 <h1>Task Manager</h1>
 
-
+<!--
 <div class="button-add-people">
   <%= button_to "Add people", class: "btn btn-flat" %>
 </div>
+-->
+
+
+
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Add people</button>
+
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+  <form class="modal-content" action="<%= trip_participants_path %>" method="post">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <div class="container">
+      <h1>Invite friends to your trip</h1>
+      <hr>
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" required>
+
+      <div class="clearfix">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="submit" class="signupbtn">Send invitation</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
 
 <div class="button-add-people">
   <%= button_to "Add Tasks", class: "btn btn-flat" %>
 </div>
 
-<!--  -->
+<!-- CARDS  -->
 
 <div class="participants">
   <% @trip.participants.each do |participant| %>
@@ -46,7 +71,33 @@
 </div>
 
 
+<!-- MODAL BOX -->
 
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">new task</button>
+<!--  -->
+<div id="id01" class="modal">
+  <div class="modal-content">
+  <!--  -->
+  <%= simple_form_for [@trip, @task] do |f| %>
+    <%= f.input :name %>
+
+    <%= f.input :description, as: :text %>
+    <%= f.input :due_date, as: :string, required: true, input_html: {class: "datepicker"} %>
+    <%= button_to "Attach file", class: "btn btn-flat" %>
+    <%= f.submit "Create new task", class: "btn btn-primary" %>
+
+    <% end %>
+    <!--  -->
+  <div class="clearfix">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+
+  </div>
+  </div>
+
+
+
+
+</div>
 
 <div class="completed-tasks">
   <h3>Completed Tasks</h3>
@@ -74,3 +125,4 @@
     }
   });
 </script>
+
