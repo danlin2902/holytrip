@@ -17,9 +17,12 @@
     @trip = Trip.new(trip_params)
     @trip.user = current_user
     if @trip.save
-      entries = params["trip"]["participant"]["email"]
-      part = Participant.new(email: entries, trip: @trip, status: "incomplete")
-      part.save
+      entries = params["emails"]
+      entries.each do |email|
+        part = Participant.new(email: email, trip: @trip, status: "incomplete")
+        part.save
+      end
+
       redirect_to trip_path(@trip)
     else
       render :new
