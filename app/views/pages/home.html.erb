@@ -1,37 +1,49 @@
+<!-- BANNER -->
 
+<div class="banner">
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", "/", class: "nav-link" %>
-        </li>
-        <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+  <h1 class="banner-main-header">
+    Holy Trip
+  </h1>
+</div>
+<button class="btn btn-banner">Start now</button>
+
+<div class="secondary-header">
+  <h3>How it works</h3>
 </div>
 
+<!-- MAIN CONTENTS -->
+<div class="home-content home-content-up">
+  <div class="content">
+    <h1 class="content-text">Plan your trip</h1>
+    <p>Choose a destination.
+Pick your dates,
+Add your friends</p>
+  </div>
+  <div class="content-img">
+    <%= image_tag("create-trip.png", alt: "Create Trip") %>
+  </div>
+</div>
+<div class="home-content home-content-down">
+  <div class="content-img">
+    <%= image_tag("Task-Manager.png", alt: "Task Manager") %>
+  </div>
+  <div class="content">
+    <h1 class="content-text">Relax</h1>
+    <p>Create tasks, organize share responsabilities.</p>
+  </div>
+</div>
+<!-- footer -->
 
-
-
-  <div class='banner slider'>
-    <div class='banner slide1'></div>
-    <div class='banner slide2'></div>
-    <div class='banner slide3'></div>
-
-    <div class="head-container better-form-search">
-      <h1>Holy trip</h1>
-      <%= button_to "Get started", trips_path, :method => "get", class: "btn btn-flat" %>
-    </div>
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
   </div>
 </div>
