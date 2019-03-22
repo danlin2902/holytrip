@@ -21,10 +21,11 @@ daniel.save
 marco.save
 regi.save
 
-trip1 = Trip.new(name: "EuroTrip 2019", destination: "Italy", start_date: DateTime.new(2019, 04, 23), end_date: DateTime.new(2019, 04, 30), photo: "https://en.wikipedia.org/wiki/Milan_Cathedral#/media/File:Milan_Cathedral_from_Piazza_del_Duomo.jpg", user: daniel)
-trip2 = Trip.new(name: "AsiaTrip", destination: "Thailand", start_date: DateTime.new(2019, 05, 23), end_date: DateTime.new(2019, 05, 30), photo: "https://en.wikipedia.org/wiki/Thailand#/media/File:Nan_z_doi_phuka_2006_1003.jpg", user: jacob)
-trip3 = Trip.new(name: "AmericaTrip", destination: "New York, New York", start_date: DateTime.new(2019, 02, 23), end_date: DateTime.new(2019, 02, 28), photo: "https://en.wikipedia.org/wiki/File:Joey_Badass.jpg", user: regi)
-trip4 = Trip.new(name: "NewTrip 2020", destination: "France", start_date: DateTime.new(2019, 06, 23), end_date: DateTime.new(2019, 06, 30), photo: "https://en.wikipedia.org/wiki/Milan_Cathedral#/media/File:Milan_Cathedral_from_Piazza_del_Duomo.jpg", user: daniel)
+trip1 = Trip.new(name: "EuroTrip 2019", destination: "Italy", start_date: DateTime.new(2019, 04, 23), end_date: DateTime.new(2019, 04, 30), remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/91a7hQZChOL._SL1500_.jpg", user: daniel)
+trip2 = Trip.new(name: "AsiaTrip", destination: "Thailand", start_date: DateTime.new(2019, 05, 23), end_date: DateTime.new(2019, 05, 30), remote_photo_url: "https://scontent-mxp1-1.xx.fbcdn.net/v/t1.0-9/44496523_1740675516058503_6895123248409739264_n.jpg?_nc_cat=103&_nc_ht=scontent-mxp1-1.xx&oh=b647508542008dc205b064f113464c41&oe=5D1538F8", user: jacob)
+trip3 = Trip.new(name: "AmericaTrip", destination: "New York, New York", start_date: DateTime.new(2019, 02, 23), end_date: DateTime.new(2019, 02, 28), remote_photo_url: "https://media.timeout.com/images/105332050/1024/576/image.jpg", user: regi)
+trip4 = Trip.new(name: "NewTrip 2020", destination: "France", start_date: DateTime.new(2019, 06, 23), end_date: DateTime.new(2019, 06, 30), remote_photo_url: "https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/08/13/14/paris-summer.jpg?w968", user: daniel)
+
 trip1.save
 trip2.save
 trip3.save
