@@ -1,3 +1,39 @@
+<!-- navbar -->
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <%= link_to root_path, class: "navbar-brand" do %>
+<i class="fa fa-map-marked-alt"></i>
+  <% end %>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <h2 class="navbar-dash-title">Create a new trip</h2>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <% if user_signed_in? %>
+      <li class="button-create">
+        <%= button_to "Go to dashboard", trips_path, :method => "get", class: "btn btn-flat" %>
+      </li>
+      <li class="nav-item dropdown">
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+        <!--   <%= link_to "Action", "#", class: "dropdown-item" %>
+          <%= link_to "Another action", "#", class: "dropdown-item" %> -->
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        </div>
+      </li>
+      <% else %>
+      <li class="nav-item">
+        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<div class="main-wrapper">
+
 
 <div class="container main-block">
   <div class="row">
@@ -7,10 +43,10 @@
 <div class="create-trip-first col-md-4">
 
   <%= simple_form_for @trip do |f| %>
-    <%= f.input :name, required: true, autofocus: true, input_html: { class: "form-control" } %>
+    <%= f.input :name, required: true, autofocus: true, input_html: { class: "form-control", placeholder: "Name your trip" } %>
     <%= f.input :destination, input_html: {id: "input-map", type: "serch", name: "trip[destination]", class: "form-control", placeholder: "Where are we going?"} %>
-    <%= f.input :start_date, as: :string, required: true, input_html: {class: "datepicker"} %>
-    <%= f.input :end_date, as: :string, required: true, input_html: {class: "datepicker"} %>
+    <%= f.input :start_date, as: :string, required: true, input_html: {class: "datepicker", placeholder: "Pick start date"} %>
+    <%= f.input :end_date, as: :string, required: true, input_html: {class: "datepicker", placeholder: "Pick end date"} %>
 
     <%= f.input :photo %>
     <%= f.input :photo_cache, as: :hidden %>
@@ -32,7 +68,7 @@
 
 
 <style>
-  #map-example-container {height: 300px};
+  #map-example-container {height: 400px};
 </style>
 
 
@@ -139,11 +175,11 @@
 </i></p>
   <%# 10.times do |i| %>
   <ul id="invite-friends">
-    <li><%= text_field_tag 'emails[]', nil, class: 'special_input' %></li>
-    <li><%= text_field_tag 'emails[]', nil, class: 'special_input' %></li>
-    <li><%= text_field_tag 'emails[]', nil, class: 'special_input' %></li>
-    <li><%= text_field_tag 'emails[]', nil, class: 'special_input' %></li>
-    <li><%= text_field_tag 'emails[]', nil, class: 'special_input' %></li>
+    <li><%= text_field_tag 'emails[]', nil, class: 'special_input', placeholder: "Enter an email of your friend" %></li>
+    <li><%= text_field_tag 'emails[]', nil, class: 'special_input', placeholder: "Enter an email of your friend" %></li>
+    <li><%= text_field_tag 'emails[]', nil, class: 'special_input', placeholder: "Enter an email of your friend" %></li>
+    <li><%= text_field_tag 'emails[]', nil, class: 'special_input', placeholder: "Enter an email of your friend" %></li>
+    <li><%= text_field_tag 'emails[]', nil, class: 'special_input', placeholder: "Enter an email of your friend" %></li>
   </ul>
   <%# end %>
   <%= f.submit "Create trip", class: "btn btn-create" %>
@@ -163,4 +199,5 @@
     </div>
 
   </div>
+</div>
 </div>
