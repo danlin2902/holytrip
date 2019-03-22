@@ -24,7 +24,7 @@
           part.save
         end
       end
-      redirect_to trip_path(@trip)
+      redirect_to trips_path
     else
       render :new
     end
