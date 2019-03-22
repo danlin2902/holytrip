@@ -7,10 +7,10 @@
 <div class="create-trip-first col-md-4">
 
   <%= simple_form_for @trip do |f| %>
-    <%= f.input :name, required: true, autofocus: true, input_html: { class: "form-control" } %>
+    <%= f.input :name, required: true, autofocus: true, input_html: { class: "form-control", placeholder: "Name your trip" } %>
     <%= f.input :destination, input_html: {id: "input-map", type: "serch", name: "trip[destination]", class: "form-control", placeholder: "Where are we going?"} %>
-    <%= f.input :start_date, as: :string, required: true, input_html: {class: "datepicker"} %>
-    <%= f.input :end_date, as: :string, required: true, input_html: {class: "datepicker"} %>
+    <%= f.input :start_date, as: :string, required: true, input_html: {class: "datepicker", placeholder: "Pick start date"} %>
+    <%= f.input :end_date, as: :string, required: true, input_html: {class: "datepicker", placeholder: "Pick end date"} %>
 
     <%= f.input :photo %>
     <%= f.input :photo_cache, as: :hidden %>
@@ -32,7 +32,7 @@
 
 
 <style>
-  #map-example-container {height: 300px};
+  #map-example-container {height: 400px};
 </style>
 
 
@@ -139,11 +139,11 @@
 </i></p>
   <%# 10.times do |i| %>
   <ul id="invite-friends">
-    <li><%= text_field_tag 'emails[]', nil, class: 'special_input' %></li>
-    <li><%= text_field_tag 'emails[]', nil, class: 'special_input' %></li>
-    <li><%= text_field_tag 'emails[]', nil, class: 'special_input' %></li>
-    <li><%= text_field_tag 'emails[]', nil, class: 'special_input' %></li>
-    <li><%= text_field_tag 'emails[]', nil, class: 'special_input' %></li>
+    <li><%= text_field_tag 'emails[]', nil, class: 'special_input', placeholder: "Enter an email of your friend" %></li>
+    <li><%= text_field_tag 'emails[]', nil, class: 'special_input', placeholder: "Enter an email of your friend" %></li>
+    <li><%= text_field_tag 'emails[]', nil, class: 'special_input', placeholder: "Enter an email of your friend" %></li>
+    <li><%= text_field_tag 'emails[]', nil, class: 'special_input', placeholder: "Enter an email of your friend" %></li>
+    <li><%= text_field_tag 'emails[]', nil, class: 'special_input', placeholder: "Enter an email of your friend" %></li>
   </ul>
   <%# end %>
   <%= f.submit "Create trip", class: "btn btn-create" %>

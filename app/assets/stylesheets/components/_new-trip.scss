@@ -3,6 +3,11 @@
   padding: 10px;
   border: 1px solid #00D1AC;
   background-color: white;
+  box-shadow: 1px 2px 8px #888888;
+  font-size: 18px;
+  .row {
+    margin-top: 20px;
+  }
   .btn {
     width: 100%;
     margin-bottom: 20px;
@@ -16,6 +21,25 @@
     color: #00D1AC;
     border: 2px solid #00D1AC;
   }
+  .form-control {
+  background-color: transparent !important;
+  border: 1px solid #00D1AC;
+  }
+  .form-control:focus {
+  border-color: red;
+  outline: none;
+  box-shadow: none;
+}
+  .special_input {
+  background-color: transparent !important;
+  border: 1px solid #00D1AC;
+  }
+  .special_input:focus {
+  border-color: red;
+  outline: none;
+  box-shadow: none;
+}
+
 
 }
 
@@ -28,14 +52,5 @@
   display:none
 }
 
-.create-trip-first {
 
-}
 
-.create-trip-second {
-
-}
-
-.create-trip-third {
-
-}
