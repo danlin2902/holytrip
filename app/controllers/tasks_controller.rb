@@ -1,7 +1,8 @@
 class TasksController < ApplicationController
   def index
     set_trip
-    @tasks = Task.where(trip_id: @trip)
+    @incomplete = Task.find_incomplete(@trip)
+    @complete = Task.find_complete(@trip)
     @task = Task.new
   end
 

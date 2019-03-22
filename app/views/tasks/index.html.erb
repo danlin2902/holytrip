@@ -36,7 +36,7 @@
 <div class="participants">
   <% @trip.participants.each do |participant| %>
   <ul>
-    <div class="droppable-cards">
+    <div class="droppable-tasks">
       <li>
         <% if !participant.user.nil? %>
         <h4> <%= participant.user.name%> </h4>
@@ -44,13 +44,13 @@
         <%= "#{participant.email}, status: #{participant.status}" %>
         <% end %>
         <ul>
-          <% @tasks.each do |task| %>
+          <% @incomplete.each do |task| %>
           <% if task.user_id == participant.user_id %>
-          <div class="draggable-cards">
+          <div class="draggable-tasks">
             <li>
               <h6> <%= task.name %> </h6>
               <p> <%= task.description %> </p>
-
+              <button type="button" onclick="document.getElementById('id02').style.display='none'">Mark as Complete</button>
               <% if task.attachments.present? %>
               <% task.attachments.each do |attach| %>
               <p>
@@ -104,7 +104,26 @@
   <h3>Completed Tasks</h3>
   <ul>
     <li>
-      <p>Empty</p>
+        <% @complete.each do |task| %>
+          <% if task.user_id == participant.user_id %>
+          <div class="draggable-cards">
+            <li>
+              <h6> <%= task.name %> </h6>
+              <p> <%= task.description %> </p>
+
+              <% if task.attachments.present? %>
+              <% task.attachments.each do |attach| %>
+              <p>
+                Attachment: <%= link_to attach.name, attach.attachment_url, target: "_blank" %>
+              </p>
+              <% end %>
+              <% else %>
+              <%= button_to "Attach file", class: "btn btn-flat" %>
+              <% end %>
+            </li>
+          </div>
+          <% end %>
+          <% end %>
 
     </li>
   </ul>
@@ -113,11 +132,11 @@
 
 
 <script>
-  $( ".draggable-cards" ).draggable({
+  $( ".draggable-tasks" ).draggable({
     helper: 'clone'
   });
 
-  $( ".droppable-cards" ).droppable({
+  $( ".droppable-tasks" ).droppable({
     drop: function() {
       // let ui = document.querySelector("");
       // var id = $(li.draggable).attr('id');
