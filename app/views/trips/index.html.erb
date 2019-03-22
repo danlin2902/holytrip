@@ -1,30 +1,65 @@
 <!-- index.html.erb -->
 
-<h1>My Dashboard</h1>
+<!-- navbar -->
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <%= link_to root_path, class: "navbar-brand" do %>
+<i class="fa fa-map-marked-alt"></i>
+  <% end %>
 
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-<!-- <div class="container">
- -->  <div class="button-create">
-    <%= button_to "Create a Trip", new_trip_path, :method => "get", class: "btn btn-flat" %>
+  <h2 class="navbar-dash-title">My Dashboard</h2>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <% if user_signed_in? %>
+      <li class="button-create">
+        <%= button_to "Create a Trip", new_trip_path, :method => "get", class: "btn btn-flat" %>
+      </li>
+      <li class="nav-item dropdown">
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+        <!--   <%= link_to "Action", "#", class: "dropdown-item" %>
+          <%= link_to "Another action", "#", class: "dropdown-item" %> -->
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        </div>
+      </li>
+      <% else %>
+      <li class="nav-item">
+        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+      </li>
+      <% end %>
+    </ul>
   </div>
+</div>
+
+
+
+
+
+<!-- <div class="container"> -->
 
   <div class="trip-index-container">
 
     <div class="trip-index-cards">
+
       <% @trips.each do |trip| %>
       <div class="card-trip">
         <%= cl_image_tag(trip.photo, crop: :fill) %>
         <div class="card-trip-infos">
-          <div>
+          <div class = card-name>
             <h2><%= link_to trip.name, trip_tasks_path(trip) %></h2>
             <p> <%= trip.destination %> </p>
           </div>
-          <p class="card-trip-pricing"><%= link_to "Remove trip", trip_path(trip), method: :delete, data: { confirm: "Are you sure?" } %></p>
-          <ul style="padding-left: 0;">
-            <% trip.participants.each do |participant| %>
-            <li class="avatar-inline"><%= participant.user.name if !participant.user.nil? %></li>
-            <% end %>
-          </ul>
+          <div class="card-right-info">
+            <ul style="padding-left: 0;">
+              <% trip.participants.each do |participant| %>
+              <li class="avatar-inline"><%= participant.user.name if !participant.user.nil? %></li>
+              <% end %>
+            </ul>
+<!--             <p class="card-trip-pricing fal fa-window-close"><%= link_to "Remove trip", trip_path(trip), method: :delete, data: { confirm: "Are you sure?" } %></p>
+ -->          </div>
         </div>
       </div>
       <% end %>
@@ -40,4 +75,4 @@
       <% end %>
     </div>
   </div>
-<!-- </div> -->
+  <!-- </div> -->
