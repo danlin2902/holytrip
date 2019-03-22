@@ -60,113 +60,6 @@
   </form>
 </div>
 
-<!-- MATERIAL TASK-MANAGER -->
-<!-- <div class="task-manager">
-      <% @trip.participants.each do |participant| %>
-      <% if !participant.user.nil? %>
-  <div class="tasks-card">
-    <div class="tasks-owner">
-      <span><%= participant.user.name  %></span>
-        <% else %>
-          <%= "#{participant.email}, status: #{participant.status}" %>
-        <% end %>
-      <div class="tasks-list">
-          <% @incomplete.each do |task| %>
-          <% if task.user_id == participant.user_id %>
-        <ul class="mdc-list" role="group" aria-label="List with checkbox items">
-          <li class="mdc-list-item" role="checkbox" aria-checked="false">
-            <span class="mdc-list-item__graphic">
-              <div class="mdc-checkbox">
-                <input type="checkbox"
-                        class="mdc-checkbox__native-control"
-                        id="demo-list-checkbox-item-1"  />
-                <div class="mdc-checkbox__background">
-                  <svg class="mdc-checkbox__checkmark"
-                        viewBox="0 0 24 24">
-                    <path class="mdc-checkbox__checkmark-path"
-                          fill="none"
-                          d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-                  </svg>
-                  <div class="mdc-checkbox__mixedmark"></div>
-                </div>
-              </div>
-            </span>
-            <div class="task ">
-            <label class="mdc-list-item__text" for="demo-list-checkbox-item-1"> <%= task.name %> </label>
-              <% @trip.participants.each do |participant| %>
-
-            <span style="font-size: x-small; " class="mdc-list-item__text" for="demo-list-checkbox-item-1"> <%= task.description %> </span >
-
-              <div class="labels">
-                <%= link_to "Mark as Complete", trip_task_path(@trip, task), {:action => "update"}%>
-                <%= simple_form_for([@trip, task], method: :patch) do |f| %>
-                <%= f.hidden_field :participant , value: participant.user.id %>
-
-                <%= f.submit "to #{participant.user.name}" %>
-
-              <% end %>
-              <% end %>
-              </div>
-
-            </div>
-          </li>
-        <% end %>
-        <% end %>
-        </ul>
-      </div>
-    </div>
-  </div>
-<% end %>
-<div class="tasks-card">
-    <div class="tasks-owner">
-      <span>Completed tasks</span>
-
-      <div class="tasks-list">
-        <% @trip.participants.each do |participant| %>
-          <% @complete.each do |task| %>
-          <% if task.user_id == participant.user_id %>
-        <ul class="mdc-list" role="group" aria-label="List with checkbox items">
-          <li class="mdc-list-item" role="checkbox" aria-checked="false">
-            <span class="mdc-list-item__graphic">
-              <div class="mdc-checkbox">
-                <input type="checkbox"
-                        class="mdc-checkbox__native-control"
-                        id="demo-list-checkbox-item-1"  />
-                <div class="mdc-checkbox__background">
-                  <svg class="mdc-checkbox__checkmark"
-                        viewBox="0 0 24 24">
-                    <path class="mdc-checkbox__checkmark-path"
-                          fill="none"
-                          d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-                  </svg>
-                  <div class="mdc-checkbox__mixedmark"></div>
-                </div>
-              </div>
-            </span>
-            <div class="task ">
-            <label class="mdc-list-item__text" for="demo-list-checkbox-item-1"> <%= task.name %> </label>
-
-            <span style="font-size: x-small; " class="mdc-list-item__text" for="demo-list-checkbox-item-1"> <%= task.description %> </span >
-
-            </div>
-
-          </li>
-              <% task.attachments.each do |attach| %>
-          <p>
-                Attachment: <%= link_to attach.name, attach.attachment_url, target: "_blank" %>
-              </p>
-              <% end %>
-              <% end %>
-        <% end %>
-        <% end %>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
- -->
-<!-- CARDS  -->
-
 <div class="participants">
   <% @trip.participants.each do |participant| %>
   <ul>
@@ -190,11 +83,13 @@
                 <%= simple_form_for([@trip, task], method: :patch) do |f| %>
                   <%= f.input :done_at, as: :hidden %>
                   <%= f.submit "Mark as Completed", class: "btn btn-primary" %>
-                <% end %>
+                <% end%>
                 <% @trip.participants.each do |participant| %>
+                <% if !participant.user.nil? %>
                   <%= simple_form_for([@trip, task], method: :patch) do |f| %>
                   <%= f.hidden_field :participant , value: participant.user.id %>
                   <%= f.submit "to #{participant.user.name}", class: "btn btn-primary" %></i>
+                <% end %>
                 <% end %>
                 <% end %>
 
