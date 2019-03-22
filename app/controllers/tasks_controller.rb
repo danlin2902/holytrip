@@ -27,7 +27,7 @@ class TasksController < ApplicationController
   def update
     set_task
     set_trip
-    @task.update(task_params)
+    @task.update(:done_at => DateTime.now)
     redirect_to trip_tasks_path(@trip)
   end
 
