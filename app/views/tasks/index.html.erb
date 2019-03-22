@@ -61,8 +61,20 @@
             </span>
             <div class="task ">
             <label class="mdc-list-item__text" for="demo-list-checkbox-item-1"> <%= task.name %> </label>
+              <% @trip.participants.each do |participant| %>
 
             <span style="font-size: x-small; " class="mdc-list-item__text" for="demo-list-checkbox-item-1"> <%= task.description %> </span >
+
+              <div class="labels">
+                <%= link_to "Mark as Complete", trip_task_path(@trip, task), {:action => "update"}%>
+                <%= simple_form_for([@trip, task], method: :patch) do |f| %>
+                <%= f.hidden_field :participant , value: participant.user.id %>
+
+                <%= f.submit "to #{participant.user.name}" %>
+
+              <% end %>
+              <% end %>
+              </div>
 
             </div>
           </li>
@@ -76,7 +88,9 @@
 <div class="tasks-card">
     <div class="tasks-owner">
       <span>Completed tasks</span>
+
       <div class="tasks-list">
+        <% @trip.participants.each do |participant| %>
           <% @complete.each do |task| %>
           <% if task.user_id == participant.user_id %>
         <ul class="mdc-list" role="group" aria-label="List with checkbox items">
@@ -97,7 +111,7 @@
                 </div>
               </div>
             </span>
-            <div class="task droppable-tasks">
+            <div class="task ">
             <label class="mdc-list-item__text" for="demo-list-checkbox-item-1"> <%= task.name %> </label>
 
             <span style="font-size: x-small; " class="mdc-list-item__text" for="demo-list-checkbox-item-1"> <%= task.description %> </span >
@@ -109,6 +123,7 @@
           <p>
                 Attachment: <%= link_to attach.name, attach.attachment_url, target: "_blank" %>
               </p>
+              <% end %>
               <% end %>
         <% end %>
         <% end %>
@@ -131,6 +146,9 @@
         <%= "#{participant.email}, status: #{participant.status}" %>
         <% end %>
         <ul>
+
+
+
           <% @incomplete.each do |task| %>
           <% if task.user_id == participant.user_id %>
           <div class="draggable-tasks">
@@ -144,9 +162,14 @@
                 <% @trip.participants.each do |participant| %>
                   <%= simple_form_for([@trip, task], method: :patch) do |f| %>
                   <%= f.hidden_field :participant , value: participant.user.id %>
-                  <%= f.submit "Assign to #{participant.user.name}", class: "btn btn-primary" %>
+                  <%= f.submit "to #{participant.user.name}", class: "btn btn-primary" %></i>
                 <% end %>
                 <% end %>
+
+
+
+
+
 <!--
               <button type="button"> <%= link_to "Mark as Complete", trip_task_path(@trip, task), {:action => "update"}%></button>
  -->              <% if task.attachments.present? %>

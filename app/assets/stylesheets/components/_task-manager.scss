@@ -29,7 +29,16 @@ body > ul:nth-child(9) > li{
 .task{
       width: 100%;
     display: flex;
-    justify-content: space-between;
+    align-items: flex-start;
     flex-flow: column;
     padding: 3px;
+}
+.mdc-list-item{
+  height: 30%;
+}
+.labels{
+          width: min-content;
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
 }
