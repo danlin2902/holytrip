@@ -1,4 +1,4 @@
-<h1>Task Manager</h1>
+  <h1>Task Manager</h1>
 
 <!--
 <div class="button-add-people">
@@ -50,8 +50,19 @@
             <li>
               <h6> <%= task.name %> </h6>
               <p> <%= task.description %> </p>
-              <button type="button" onclick="document.getElementById('id02').style.display='none'">Mark as Complete</button>
-              <% if task.attachments.present? %>
+                <%= simple_form_for([@trip, task], method: :patch) do |f| %>
+                  <%= f.input :done_at, as: :hidden %>
+                  <%= f.submit "Mark as Completed", class: "btn btn-primary" %>
+                <% end %>
+                <% @trip.participants.each do |participant| %>
+                  <%= simple_form_for([@trip, task], method: :patch) do |f| %>
+                  <%= f.hidden_field :participant , value: participant.user.id %>
+                  <%= f.submit "Assign to #{participant.user.name}", class: "btn btn-primary" %>
+                <% end %>
+                <% end %>
+<!--
+              <button type="button"> <%= link_to "Mark as Complete", trip_task_path(@trip, task), {:action => "update"}%></button>
+ -->              <% if task.attachments.present? %>
               <% task.attachments.each do |attach| %>
               <p>
                 Attachment: <%= link_to attach.name, attach.attachment_url, target: "_blank" %>
@@ -105,7 +116,6 @@
   <ul>
     <li>
         <% @complete.each do |task| %>
-          <% if task.user_id == participant.user_id %>
           <div class="draggable-cards">
             <li>
               <h6> <%= task.name %> </h6>
@@ -122,7 +132,6 @@
               <% end %>
             </li>
           </div>
-          <% end %>
           <% end %>
 
     </li>

@@ -4,7 +4,8 @@ import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the styleshe
 
 import { initMapbox } from '../plugins/init_mapbox';
 import { initPlaces } from '../plugins/init_places';
+import { addFields } from '../plugins/add_fields';
 
 initMapbox();
 initsearchAlgoliaPlaces();
-
+addFields();
