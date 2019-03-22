@@ -1,0 +1,41 @@
+.main-block {
+  margin-top: 10%;
+  padding: 10px;
+  border: 1px solid #00D1AC;
+  background-color: white;
+  .btn {
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: #00D1AC;
+    color: white;
+    font-weight: bolder;
+    border: 2px solid #00D1AC;
+  }
+  .btn:hover {
+    background-color: white;
+    color: #00D1AC;
+    border: 2px solid #00D1AC;
+  }
+
+}
+
+#invite-friends {
+  list-style-type:none;
+  padding: 0;
+}
+
+#hidden-fields {
+  display:none
+}
+
+.create-trip-first {
+
+}
+
+.create-trip-second {
+
+}
+
+.create-trip-third {
+
+}
