@@ -7,8 +7,12 @@ import {MDCRipple} from '@material/ripple';
 
 import { initMapbox } from '../plugins/init_mapbox';
 import { initPlaces } from '../plugins/init_places';
+import { addFields } from '../plugins/add_fields';
 
 initMapbox();
 initsearchAlgoliaPlaces();
 
 const listItemRipples = list.listElements.map((listItemEl) => new MDCRipple(listItemEl));
+
+addFields();
+
