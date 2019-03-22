@@ -51,7 +51,14 @@
               <h6> <%= task.name %> </h6>
               <p> <%= task.description %> </p>
                 <%= simple_form_for([@trip, task], method: :patch) do |f| %>
+                  <%= f.input :done_at, as: :hidden %>
                   <%= f.submit "Mark as Completed", class: "btn btn-primary" %>
+                <% end %>
+                <% @trip.participants.each do |participant| %>
+                  <%= simple_form_for([@trip, task], method: :patch) do |f| %>
+                  <%= f.hidden_field :participant , value: participant.user.id %>
+                  <%= f.submit "Assign to #{participant.user.name}", class: "btn btn-primary" %>
+                <% end %>
                 <% end %>
 <!--
               <button type="button"> <%= link_to "Mark as Complete", trip_task_path(@trip, task), {:action => "update"}%></button>

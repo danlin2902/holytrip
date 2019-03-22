@@ -27,7 +27,12 @@ class TasksController < ApplicationController
   def update
     set_task
     set_trip
-    @task.update(:done_at => DateTime.now)
+    if task_params[:done_at]
+      @task.update(:done_at => DateTime.now)
+    else
+      user = User.find(params[:task][:participant].to_i)
+      @task.update(user: user)
+    end
     redirect_to trip_tasks_path(@trip)
   end
 
