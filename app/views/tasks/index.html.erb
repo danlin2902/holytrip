@@ -182,13 +182,12 @@
 
     <%= f.input :description, as: :text %>
     <%= f.input :due_date, as: :datetime, required: true, input_html: {class: "datepicker"} %>
-    <%= button_to "Attach file", class: "btn btn-flat" %>
+    <div class="clearfix" style="display: flex">
+        <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
     <%= f.submit "Create new task", class: "btn btn-primary" %>
 
     <% end %>
     <!--  -->
-  <div class="clearfix">
-        <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
 
   </div>
   </div>
