@@ -36,7 +36,7 @@
 <div class="participants">
   <% @trip.participants.each do |participant| %>
   <ul>
-    <div class="droppable-cards">
+    <div class="droppable-tasks">
       <li>
         <% if !participant.user.nil? %>
         <h4> <%= participant.user.name%> </h4>
@@ -46,7 +46,7 @@
         <ul>
           <% @incomplete.each do |task| %>
           <% if task.user_id == participant.user_id %>
-          <div class="draggable-cards">
+          <div class="draggable-tasks">
             <li>
               <h6> <%= task.name %> </h6>
               <p> <%= task.description %> </p>
@@ -132,11 +132,11 @@
 
 
 <script>
-  $( ".draggable-cards" ).draggable({
+  $( ".draggable-tasks" ).draggable({
     helper: 'clone'
   });
 
-  $( ".droppable-cards" ).droppable({
+  $( ".droppable-tasks" ).droppable({
     drop: function() {
       // let ui = document.querySelector("");
       // var id = $(li.draggable).attr('id');

@@ -2,37 +2,42 @@
 
 <h1>My Dashboard</h1>
 
-<div class="trip-index">
-  <% @trips.each do |trip| %>
-  <div class="trip-card">
-  <h3><%= link_to trip.name, trip_tasks_path(trip) %></h3>
-  <%= link_to "Delete trip", trip_path(trip),
-      method: :delete,
-      data: { confirm: "Are you sure?" } %>
-  <h5> <%= trip.destination %> </h5>
-  <ul>
-    <% trip.participants.each do |participant| %>
-    <li><%= participant.user.name if !participant.user.nil? %></li>
-  <% end %>
-  </ul>
+
+<!-- <div class="container">
+ -->  <div class="button-create">
+    <%= button_to "Create a Trip", new_trip_path, :method => "get", class: "btn btn-flat" %>
   </div>
-  <% end %>
-</div>
 
+  <div class="trip-index-container">
 
-
-<div class="button-create">
-  <%= button_to "Create a Trip", new_trip_path, :method => "get", class: "btn btn-flat" %>
-</div>
-
-
-<div class="personal-tasks">
-  <h2>My Tasks</h2>
-  <% current_user.tasks.each do |task| %>
-  <ul>
-    <li>
-      <%= link_to  task.name, trip_tasks_path(task.trip) %> | <%= link_to task.trip.name, trip_tasks_path(task.trip)  %> | <%= task.due_date%>
-    </li>
-  </ul>
-  <% end %>
-</div>
+    <div class="trip-index-cards">
+      <% @trips.each do |trip| %>
+      <div class="card-trip">
+        <%= cl_image_tag(trip.photo, crop: :fill) %>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= link_to trip.name, trip_tasks_path(trip) %></h2>
+            <p> <%= trip.destination %> </p>
+          </div>
+          <p class="card-trip-pricing"><%= link_to "Remove trip", trip_path(trip), method: :delete, data: { confirm: "Are you sure?" } %></p>
+          <ul style="padding-left: 0;">
+            <% trip.participants.each do |participant| %>
+            <li class="avatar-inline"><%= participant.user.name if !participant.user.nil? %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <div class="personal-tasks-container">
+      <h2>My Tasks</h2>
+      <% current_user.tasks.each do |task| %>
+      <ul class="personal-task">
+        <li class="personal-task-content">
+          <%= link_to  task.name, trip_tasks_path(task.trip) %> | <%= link_to task.trip.name, trip_tasks_path(task.trip)  %> <!-- | <%= task.due_date%> -->
+        </li>
+      </ul>
+      <% end %>
+    </div>
+  </div>
+<!-- </div> -->
