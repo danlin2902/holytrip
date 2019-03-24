@@ -44,35 +44,62 @@
 
     <div class="trip-index-cards">
 
+
+
+
+<!-- new card attempt -->
       <% @trips.each do |trip| %>
-      <div class="card-trip">
-        <%= cl_image_tag(trip.photo, crop: :fill) %>
-        <div class="card-trip-infos">
-          <div class = card-name>
-            <h2><%= link_to trip.name, trip_tasks_path(trip) %></h2>
-            <p> <%= trip.destination %> </p>
+        <%= link_to trip_tasks_path(trip) do %>
+        <div class="product-card">
+          <div class="product-tumb">
+            <%= cl_image_tag(trip.photo, crop: :fill) %>
           </div>
-          <div class="card-right-info">
-            <ul style="padding-left: 0;">
-              <% trip.participants.each do |participant| %>
-              <li class="avatar-inline"><%= participant.user.name if !participant.user.nil? %></li>
-              <% end %>
-            </ul>
-<!--             <p class="card-trip-pricing fal fa-window-close"><%= link_to "Remove trip", trip_path(trip), method: :delete, data: { confirm: "Are you sure?" } %></p>
- -->          </div>
+          <div class="product-details">
+              <h4><%= link_to trip.name, trip_tasks_path(trip) %></h4>
+              <p><%= trip.destination %></p>
+            <div class="product-bottom-details">
+              <div class="product-price"><ul style="padding-left: 0;">
+                <% trip.participants.each do |participant| %>
+                <li class="avatar-inline"><%= participant.user.name if !participant.user.nil? %></li>
+                <% end %>
+              </ul></div>
+              <div class="product-links">
+                 <!--  <a href=""><i class="fa fa-heart"></i></a>
+                  <a href=""><i class="fa fa-shopping-cart"></i></a> -->
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+        <% end %>
       <% end %>
     </div>
+
+
+
     <div class="personal-tasks-container">
       <h2>My Tasks</h2>
       <% current_user.tasks.each do |task| %>
-      <ul class="personal-task">
-        <li class="personal-task-content">
-          <%= link_to  task.name, trip_tasks_path(task.trip) %> | <%= link_to task.trip.name, trip_tasks_path(task.trip)  %> <!-- | <%= task.due_date%> -->
-        </li>
-      </ul>
+        <ul class="personal-task">
+          <li class="personal-task-content">
+            <%= link_to  task.name, trip_tasks_path(task.trip) %> | <%= link_to task.trip.name, trip_tasks_path(task.trip)  %> <!-- | <%= task.due_date%> -->
+          </li>
+        </ul>
       <% end %>
     </div>
   </div>
   <!-- </div> -->
+
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+  </div>
+</div>
+
