@@ -6,7 +6,11 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-Dotenv::Railtie.load
+begin
+  Dotenv::Railtie.load
+rescue Exception => e
+
+end
 
 module Holytrip
   class Application < Rails::Application

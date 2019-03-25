@@ -60,6 +60,7 @@
   </form>
 </div>
 
+
 <!-- TASK MANAGER -->
 <div class="tasks-manager">
       <% @trip.participants.each do |participant| %>
@@ -135,8 +136,34 @@
   </div>
 
 
+
 </div>
 
+
+          <% @incomplete.each do |task| %>
+          <% if task.user_id == participant.user_id %>
+          <div class="draggable-tasks">
+            <li>
+              <h6> <%= task.name %> </h6>
+              <p> <%= task.description %> </p>
+                <%= simple_form_for([@trip, task], method: :patch) do |f| %>
+                  <%= f.input :done_at, as: :hidden %>
+                  <%= f.submit "Mark as Completed", class: "btn btn-primary" %>
+
+                <%= simple_form_for([@trip, task], method: :delete) do |f| %>
+                  <%= f.submit "Delete task", class: "btn btn-primary" %>
+                <% end %>
+                <% end %>
+                <%# end%>
+
+                <% @trip.participants.each do |participant| %>
+                <% if !participant.user.nil? %>
+                  <%= simple_form_for([@trip, task], method: :patch) do |f| %>
+                  <%= f.hidden_field :participant , value: participant.user.id %>
+                  <%= f.submit "to #{participant.user.name}", class: "btn btn-primary" %></i>
+                <% end %>
+                <% end %>
+                <% end %>
 
 <div>
 
