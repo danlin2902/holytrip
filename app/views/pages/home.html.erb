@@ -1,15 +1,26 @@
 <!-- BANNER -->
 
 <div class="banner">
-
-  <h1 class="banner-main-header">
-    Holy Trip
-  </h1>
+  <div class="banner-main-header">
+    <h1 class="main-header">
+      Holy Trip
+    </h1>
+  </div>
+  <div class="banner-typed-header" id="typed-strings">
+      <p>With HolyTrip you <strong>can plan a trip</strong></p>
+      <p>With HolyTrip you <strong>can invite friends</strong></p>
+      <p>With HolyTrip you <strong>can delegate tasks</strong></p>
+      <p>With HolyTrip you <strong>can share attachments</strong></p>
+      <p>With HolyTrip you <strong>always on the same page</strong></p>
+  </div>
+  <span id="typed"></span>
 </div>
+
 <%= button_to "Start now", trips_path, :method => "get", class: "btn-banner" %>
 
 <div class="secondary-header">
   <h3>How it works</h3>
+
 </div>
 
 <!-- MAIN CONTENTS -->
@@ -47,3 +58,14 @@ Add your friends</p>
     This footer is made with <i class="fas fa-heart"></i> at Le Wagon
   </div>
 </div>
+
+
+<script>
+  var typed = new Typed('#typed', {
+    stringsElement: '#typed-strings',
+    loop: true,
+    typeSpeed: 55,
+    smartBackspace: true,
+    cursorChar: '',
+  });
+</script>
