@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :participants
   after_create :send_welcome_email
 
+  mount_uploader :photo, PhotoUploader
+
   private
 
   def send_welcome_email
