@@ -119,18 +119,23 @@
   border-radius: 4px;
   height: 52px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-
+  color: gray;
+  font-weight: lighter;
+  font-size: 12px
 }
 
 .personal-task .personal-tasks-container {
 
   flex-grow: 1;
   padding: 0 24px;
+    text-decoration: none;
+
 }
 
 .personal-tasks-container li {
   margin: 0;
   line-height: 1.4;
+  text-decoration: none;
 }
 
 .personal-tasks-container h2 {
@@ -141,4 +146,9 @@
 .card-right-info {
  margin: 10px 16px 4px 0px;
 
+}
+
+
+.personal-tasks-container a {
+  text-decoration: none !important;
 }

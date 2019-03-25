@@ -56,7 +56,7 @@
               <p><%= trip.destination %></p>
               <div class="product-bottom-details product-price"><ul style="padding-left: 0;">
                 <% trip.participants.each do |participant| %>
-                <li class="avatar-inline" data-toggle="tooltip" data-placement="bottom" title=<%= participant.user.name  %>><%= cl_image_tag participant.user.photo, crop: :fill, class: "avatar-tiny" if !participant.user.nil? %></li>
+                <li class="avatar-inline" data-toggle="tooltip" data-placement="bottom" title=<%= participant.user.name if !participant.user.nil?  %>><%= cl_image_tag participant.user.photo, crop: :fill, class: "avatar-tiny" if !participant.user.nil? %></li>
                 <% end %>
               </ul>
             </div>
@@ -75,11 +75,13 @@
     <div class="personal-tasks-container">
       <h2>My Tasks</h2>
       <% current_user.tasks.each do |task| %>
+        <%= link_to trip_tasks_path(task.trip) do %>
         <ul class="personal-task">
           <li class="personal-task-content">
-            <%= link_to  task.name, trip_tasks_path(task.trip) %> | <%= link_to task.trip.name, trip_tasks_path(task.trip)  %> <!-- | <%= task.due_date%> -->
+            <%= task.name %> | <%= task.trip.name %> | Deadline: <%= task.due_date.strftime("%m/%d")%>
           </li>
-        </ul>
+       </ul>
+        <% end %>
       <% end %>
     </div>
   </div>
