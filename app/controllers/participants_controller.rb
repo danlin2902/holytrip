@@ -5,14 +5,14 @@ class ParticipantsController < ApplicationController
   end
 
   def create
-
+    @trip = Trip.find(params[:trip_id])
     @participant = Participant.new(email: params[:email], status: "pending")
     @participant.trip = Trip.find(params[:trip_id])
     random_pass = SecureRandom.hex(10)
     user = User.create(email: params[:email], password: random_pass, password_confirmation: random_pass)
     @participant.user = user
     if @participant.save
-      redirect_to trip_path(@participant.trip)
+      redirect_to trip_tasks_path(@trip)
     else
       render :new
     end
@@ -27,7 +27,7 @@ class ParticipantsController < ApplicationController
     @participant = Participant.find(params[:id])
     @participant.user = current_user
     @participant.update(participant_params)
-    redirect_to trip_path(@participant.trip)
+    redirect_to trip_tasks_path(@trip)
   end
 
   private
@@ -37,6 +37,6 @@ class ParticipantsController < ApplicationController
   # end
 
   def email
-     params[:email]
+   params[:email]
   end
 end

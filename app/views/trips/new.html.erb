@@ -1,25 +1,21 @@
+
 <!-- navbar -->
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to root_path, class: "navbar-brand" do %>
 <i class="fa fa-map-marked-alt"></i>
   <% end %>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
-  <h2 class="navbar-dash-title">Create a new trip</h2>
+  <h2 class="navbar-dash-title">Create Your Trip</h2>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-      <li class="button-create">
-        <%= button_to "Go to dashboard", trips_path, :method => "get", class: "btn btn-flat" %>
+      <li class="dash-link">
+        <%= link_to "Back to dashboard", trips_path, :method => "get" %>
       </li>
       <li class="nav-item dropdown">
-        <%= image_tag "https://scontent-mxp1-1.xx.fbcdn.net/v/t1.0-9/25152155_1505642512838314_8663932422468807295_n.jpg?_nc_cat=108&_nc_ht=scontent-mxp1-1.xx&oh=89d1da59a5d8724c29ce682506afbd5e&oe=5D12F92C", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <%= cl_image_tag current_user.photo, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-        <!--   <%= link_to "Action", "#", class: "dropdown-item" %>
-          <%= link_to "Another action", "#", class: "dropdown-item" %> -->
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         </div>
       </li>
@@ -31,6 +27,8 @@
     </ul>
   </div>
 </div>
+
+
 
 <div class="main-wrapper">
 
