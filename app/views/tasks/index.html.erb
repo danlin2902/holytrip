@@ -83,7 +83,13 @@
                 <%= simple_form_for([@trip, task], method: :patch) do |f| %>
                   <%= f.input :done_at, as: :hidden %>
                   <%= f.submit "Mark as Completed", class: "btn btn-primary" %>
+
+                <%= simple_form_for([@trip, task], method: :delete) do |f| %>
+                  <%= f.submit "Delete task", class: "btn btn-primary" %>
+                <% end %>
+                <% end %>
                 <% end%>
+
                 <% @trip.participants.each do |participant| %>
                 <% if !participant.user.nil? %>
                   <%= simple_form_for([@trip, task], method: :patch) do |f| %>
