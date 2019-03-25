@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to root_path, class: "navbar-brand" do %>
-<i class="fa fa-map-marked-alt"></i>
+  <i class="fa fa-map-marked-alt"></i>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,24 +80,50 @@
             <li>
               <h6> <%= task.name %> </h6>
               <p> <%= task.description %> </p>
-                <%= simple_form_for([@trip, task], method: :patch) do |f| %>
-                  <%= f.input :done_at, as: :hidden %>
-                  <%= f.submit "Mark as Completed", class: "btn btn-primary" %>
+              <%= simple_form_for([@trip, task], method: :patch) do |f| %>
+              <%= f.input :done_at, as: :hidden %>
+              <%= f.submit "Mark as Completed", class: "btn btn-primary" %>
 
-                <%= simple_form_for([@trip, task], method: :delete) do |f| %>
-                  <%= f.submit "Delete task", class: "btn btn-primary" %>
-                <% end %>
-                <% end %>
-                <%# end%>
+              <% end %>
+              <%= simple_form_for([@trip, task], method: :delete) do |fd| %>
+              <%= fd.submit "Delete task", class: "btn btn-primary" %>
+              <% end %>
 
-                <% @trip.participants.each do |participant| %>
-                <% if !participant.user.nil? %>
-                  <%= simple_form_for([@trip, task], method: :patch) do |f| %>
-                  <%= f.hidden_field :participant , value: participant.user.id %>
-                  <%= f.submit "to #{participant.user.name}", class: "btn btn-primary" %></i>
-                <% end %>
-                <% end %>
-                <% end %>
+              <div id="<%= task.id %>" class="modal">
+                <div class="modal-content">
+                  <!--  -->
+                  <%= simple_form_for [@trip, task] do |fa| %>
+                  <%= fa.input :name %>
+
+                  <%= fa.input :description, as: :text %>
+                  <%= fa.input :due_date, as: :datetime, required: true, input_html: {class: "datepicker"} %>
+                  <div class="clearfix" style="display: flex">
+                    <%= fa.submit "Save task", class: "btn btn-primary" %>
+                    <button type="button" onclick="document.getElementById('<%= task.id %>').style.display='none'" class="cancelbtn">Cancel</button>
+
+                    <% end %>
+                    <!--  -->
+
+                  </div>
+                </div>
+
+
+
+
+              </div>
+
+
+              <button onclick="document.getElementById('<%= task.id %>').style.display='block'" style="width:auto;">Edit task</button>
+
+
+              <% @trip.participants.each do |participant| %>
+              <% if !participant.user.nil? %>
+              <%= simple_form_for([@trip, task], method: :patch) do |f| %>
+              <%= f.hidden_field :participant , value: participant.user.id %>
+              <%= f.submit "to #{participant.user.name}", class: "btn btn-primary" %></i>
+              <% end %>
+              <% end %>
+              <% end %>
 
 
 
@@ -105,24 +131,24 @@
 
 <!--
               <button type="button"> <%= link_to "Mark as Complete", trip_task_path(@trip, task), {:action => "update"}%></button>
- -->              <% if task.attachments.present? %>
-              <% task.attachments.each do |attach| %>
-              <p>
-                Attachment: <%= link_to attach.name, attach.attachment_url, target: "_blank" %>
-              </p>
-              <% end %>
-              <% else %>
-              <%= button_to "Attach file", class: "btn btn-flat" %>
-              <% end %>
-            </li>
-          </div>
-          <% end %>
-          <% end %>
-        </ul>
-      </li>
-    </div>
-  </ul>
-  <% end %>
+            -->              <% if task.attachments.present? %>
+            <% task.attachments.each do |attach| %>
+            <p>
+              Attachment: <%= link_to attach.name, attach.attachment_url, target: "_blank" %>
+            </p>
+            <% end %>
+            <% else %>
+            <%= button_to "Attach file", class: "btn btn-flat" %>
+            <% end %>
+          </li>
+        </div>
+        <% end %>
+        <% end %>
+      </ul>
+    </li>
+  </div>
+</ul>
+<% end %>
 </div>
 
 
@@ -132,63 +158,83 @@
 <!--  -->
 <div id="id02" class="modal">
   <div class="modal-content">
-  <!--  -->
-  <%= simple_form_for [@trip, @task] do |f| %>
+    <!--  -->
+    <%= simple_form_for [@trip, @task] do |f| %>
     <%= f.input :name %>
 
     <%= f.input :description, as: :text %>
     <%= f.input :due_date, as: :datetime, required: true, input_html: {class: "datepicker"} %>
     <div class="clearfix" style="display: flex">
-    <%= f.submit "Create new task", class: "btn btn-primary" %>
-        <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+      <%= f.submit "Create new task", class: "btn btn-primary" %>
+      <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
 
-    <% end %>
-    <!--  -->
+      <% end %>
+      <!--  -->
+
+    </div>
+  </div>
+
+
+
+  <div id="id03" class="modal">
+    <div class="modal-content">
+      <!--  -->
+      <%= simple_form_for [@trip, @task] do |f| %>
+      <%= f.input :name %>
+
+      <%= f.input :description, as: :text %>
+      <%= f.input :due_date, as: :datetime, required: true, input_html: {class: "datepicker"} %>
+      <div class="clearfix" style="display: flex">
+        <%= f.submit "Save task", class: "btn btn-primary" %>
+        <button type="button" onclick="document.getElementById('id03').style.display='none'" class="cancelbtn">Cancel</button>
+
+        <% end %>
+        <!--  -->
+
+      </div>
+    </div>
+
+
+
 
   </div>
-  </div>
 
-
-
-
-</div>
-
-<div class="completed-tasks">
-  <h3>Completed Tasks</h3>
-  <ul>
-    <li>
+  <div class="completed-tasks">
+    <h3>Completed Tasks</h3>
+    <ul>
+      <li>
         <% @complete.each do |task| %>
-          <div class="draggable-cards">
-            <li>
-              <h6> <%= task.name %> </h6>
-              <p> <%= task.description %> </p>
+        <div class="draggable-cards">
+          <li>
+            <h6> <%= task.name %> </h6>
+            <p> <%= task.description %> </p>
 
-              <% if task.attachments.present? %>
-              <% task.attachments.each do |attach| %>
-              <p>
-                Attachment: <%= link_to attach.name, attach.attachment_url, target: "_blank" %>
-              </p>
-              <% end %>
-              <% else %>
-              <%= button_to "Attach file", class: "btn btn-flat" %>
-              <% end %>
-            </li>
-          </div>
-          <% end %>
+            <% if task.attachments.present? %>
+            <% task.attachments.each do |attach| %>
+            <p>
+              Attachment: <%= link_to attach.name, attach.attachment_url, target: "_blank" %>
+            </p>
+            <% end %>
+            <% else %>
+            <%= button_to "Attach file", class: "btn btn-flat" %>
+            <% end %>
+          </li>
+        </div>
+        <% end %>
 
-    </li>
-  </ul>
-</div>
+      </li>
+    </ul>
+  </div>
 
 
 
-<script>
-  $( ".draggable-tasks" ).draggable({
-    helper: 'clone'
-  });
+  <script>
+    $( ".draggable-tasks" ).draggable({
+      helper: 'clone'
+    });
 
-  $( ".droppable-tasks" ).droppable({
-    drop: function() {
+    $( ".droppable-tasks" ).droppable({
+      drop: function() {
       // let ui = document.querySelector("");
       // var id = $(li.draggable).attr('id');
       // console.log(id);
