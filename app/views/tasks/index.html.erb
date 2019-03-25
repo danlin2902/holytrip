@@ -64,6 +64,7 @@
         <% end %>
     </div>
     <!--         task body               -->
+    <% @incomplete.each do |task| %>
     <div class="task-body">
       <!--      task card                -->
 
@@ -71,25 +72,28 @@
 
         <div class="card-task-infos">
           <div class="task-box">
-        <%# unless participant.user_id %>
-        <% @incomplete.each do |task| %>
           <% if task.user_id == participant.user_id %>
-          <div class="task-content">
 
             <h2 class="task-title"><%= task.name %></h2>
 
             <p class="task-description"><%= task.description %></p>
-          <div class="icon">
-            <i class="fas fa-bars"></i>
+          <div class="icon dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-bars ">
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+                <div role="separator" class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Separated link</a>
+              </div>
+            </i>
           </div>
-
-          </div>
-            <% end %>
             <% end %>
           </div>
         </div>
       </div>
     </div>
+    <% end %>
   </div>
       <% end %>
       <%# end %>
@@ -98,7 +102,7 @@
       <div class="task">
     <!--        Task head                -->
     <div class="task-head">
-      <h2>Completed Tasks</h2>
+      <h2  >Completed Tasks</h2>
     </div>
     <!--         task body               -->
     <div class="task-body">
@@ -398,6 +402,7 @@
 
 
 <script>
+
   $( ".draggable-tasks" ).draggable({
     helper: 'clone'
   });
