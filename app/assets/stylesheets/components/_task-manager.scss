@@ -1,44 +1,114 @@
-.task-manager{
-  width: 100%;
-    height: 80vh;
-    margin: 0 auto;
+// task manager
+
+.tasks-manager{
+     height: -webkit-fill-available;
     display: flex;
     flex-wrap: wrap;
-    align-content: space-between;
-    margin: 2px auto;
-    padding: 2pc;
+    justify-content: space-around;
+    min-height: 85vh;
 }
-.tasks-card{
-      flex-flow: column;
-  flex-direction: row;
-  align-items: stretch;
-  height: 60%;
-  width: 25%;
-  margin: 0px auto;
+
+
+// tasks container
+
+.task{
+
+    width: 25%;
+    margin: 2px auto;
+    padding: 20px;
+    height: 46vh;
+    position: relative;
+}
+// task head
+.task-head{
+      opacity: 1;
+    z-index: 1000;
+    position: sticky;
+   height: 50px;
+    width: 100%;
+    background: #3990f7;
+    color: #fff;
+    padding: 14px;
+    border-radius: 4px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+.task-head h2{
+  font-size: 18px;
+  font-weight: 300;
+  margin: 0;
+  text-align: center;
+
+}
+// task body
+.task-body{
+  height: 80%;
+  width: 100%;
   overflow: scroll;
 }
-body > ul:nth-child(9) > li{
-      display: flex;
+// task card
+.card-task {
+      border-radius: 4px;
+       margin-top: 1.2vh;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+    // border-bottom: 2px solid #00d0ac;
+}
+.task-content{
+      border-bottom: 0.5px solid #00d0ac;
+
+    margin-bottom: 25px;
+}
+.task-box{
+      width: 70%;
+
+}
+
+.card-task h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+
+}
+.task-title{
+  font-weight: 100 !important;
+  width: 100%;
+  padding-bottom: 10%;
+  text-align: left;
+}
+.icon{
+   font-size: x-large;
+    font-weight: 100 !important;
+    top: -50px;
+    width: 0%;
+    float: right;
     position: relative;
-    align-items: center;
-    justify-content: space-between;
-    height: 48px;
-    padding: 0 16px;
-    overflow: hidden;
+    left: 25%;
+    text-align: right;
 }
-.task{
-      width: 100%;
-    display: flex;
-    align-items: flex-start;
-    flex-flow: column;
-    padding: 3px;
+.card-task p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+  width: 100%;
+  overflow: scroll;
+  padding: 1%;
+  opacity: .4;
 }
-.mdc-list-item{
-  height: 30%;
+
+
+.card-task .card-task-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
 }
-.labels{
-          width: min-content;
-    display: flex;
-    flex-direction: row;
-    height: fit-content;
+
+.card-task-infos .card-task-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
 }
