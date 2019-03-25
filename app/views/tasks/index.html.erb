@@ -82,7 +82,7 @@
 
         <div class="card-task-infos">
           <div class="task-box">
-        <% unless participant.user_id %>
+        <%# unless participant.user_id %>
         <% @incomplete.each do |task| %>
           <% if task.user_id == participant.user_id %>
           <div class="task-content">
@@ -103,7 +103,7 @@
     </div>
   </div>
       <% end %>
-      <% end %>
+      <%# end %>
       <!--  -->
       <!--  -->
       <div class="task">
@@ -399,7 +399,7 @@
   </div>
   </div>
 
-<% end %>
+<%# end %>
 
 
 </div>
@@ -423,4 +423,4 @@
   });
 </script>
 
-<% end %>
+<%# end %>
