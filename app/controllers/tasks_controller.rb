@@ -29,9 +29,11 @@ class TasksController < ApplicationController
     set_trip
     if task_params[:done_at]
       @task.update(:done_at => DateTime.now)
-    else
+    elsif params[:task][:participant].to_i != 0
       user = User.find(params[:task][:participant].to_i)
       @task.update(user: user)
+    else
+      @task.update!(task_params)
     end
     redirect_to trip_tasks_path(@trip)
   end
@@ -54,6 +56,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:name, :description, :due_date, :done_at, :user_id, :trip_id)
+    params.require(:task).permit(:name, :description, :due_date, :done_at)
   end
 end
