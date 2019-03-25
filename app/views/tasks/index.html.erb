@@ -140,32 +140,36 @@
 </div>
 
 
-          <% @incomplete.each do |task| %>
-          <% if task.user_id == participant.user_id %>
+<!--           <%# @incomplete.each do |task| %>
+          <%# if participant.user %>
+          <%# if task.user_id == participant.user_id %>
           <div class="draggable-tasks">
             <li>
-              <h6> <%= task.name %> </h6>
-              <p> <%= task.description %> </p>
-                <%= simple_form_for([@trip, task], method: :patch) do |f| %>
-                  <%= f.input :done_at, as: :hidden %>
-                  <%= f.submit "Mark as Completed", class: "btn btn-primary" %>
+              <h6> <%#= task.name %> </h6>
+              <p> <%#= task.description %> </p>
+                <%#= simple_form_for([@trip, task], method: :patch) do |f| %>
+                  <%#= f.input :done_at, as: :hidden %>
+                  <%#= f.submit "Mark as Completed", class: "btn btn-primary" %>
 
-                <%= simple_form_for([@trip, task], method: :delete) do |f| %>
-                  <%= f.submit "Delete task", class: "btn btn-primary" %>
-                <% end %>
-                <% end %>
+                <%#= simple_form_for([@trip, task], method: :delete) do |f| %>
+                  <%#= f.submit "Delete task", class: "btn btn-primary" %>
+                <%# end %>
+                <%# end %>
                 <%# end%>
 
-                <% @trip.participants.each do |participant| %>
-                <% if !participant.user.nil? %>
-                  <%= simple_form_for([@trip, task], method: :patch) do |f| %>
-                  <%= f.hidden_field :participant , value: participant.user.id %>
-                  <%= f.submit "to #{participant.user.name}", class: "btn btn-primary" %></i>
-                <% end %>
-                <% end %>
-                <% end %>
+                <%# @trip.participants.each do |participant| %>
+                <%# if !participant.user.nil? %>
+                  <%#= simple_form_for([@trip, task], method: :patch) do |f| %>
+                  <%#= f.hidden_field :participant , value: participant.user.id %>
+                  <%#= f.submit "to #{participant.user.name}", class: "btn btn-primary" %></i>
+                <%# end %>
+                <%# end %>
+                <%# end %>
+                <%# end %>
+                <%#end %>
+                <%# end %>
 
-<div>
+<div> -->
 
     <!-- CARDS  -->
 
@@ -209,7 +213,7 @@
      -->              <%## if task.attachments.present? %>
                   <%# task.attachments.each do |attach| %>
               <!--     <p>
-                    Attachment: <%#= link_to attach.name, attach.attachment_url, target: "_blank" %>
+                    Attachment: <%#= link_to attach.name, attach.photo_url, target: "_blank" %>
                   </p>
                   <%# end %>
                   <%# else %>
@@ -256,34 +260,7 @@
 
 
 
-<!-- <div class="completed-tasks">
-  <h3>Completed Tasks</h3>
-  <ul>
-    <li>
-        <%# @complete.each do |task| %>
-          <div class="draggable-cards">
-            <li>
-              <h6> <%#= task.name %> </h6>
-              <p> <%#= task.description %> </p>
 
-              <#% if task.attachments.present? %>
-              <#% task.attachments.each do |attach| %>
-              <p>
-                Attachment: <%#= link_to attach.name, attach.attachment_url, target: "_blank" %>
-              </p>
-              <#% end %>
-              <#% else %>
-              <%#= button_to "Attach file", class: "btn btn-flat" %>
-              <#% end %>
-            </li>
-          </div>
-          <#% end %>
-
-    </li>
-  </ul>
-</div>
-
-</div> -->
 
 <script>
   $( ".draggable-tasks" ).draggable({
