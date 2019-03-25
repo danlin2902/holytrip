@@ -55,17 +55,16 @@
           <div class="product-details">
               <h4><%= link_to trip.name, trip_tasks_path(trip) %></h4>
               <p><%= trip.destination %></p>
-            <div class="product-bottom-details">
-              <div class="product-price"><ul style="padding-left: 0;">
+              <div class="product-bottom-details product-price"><ul style="padding-left: 0;">
                 <% trip.participants.each do |participant| %>
-                <li class="avatar-inline"><%= cl_image_tag participant.user.photo, crop: :fill if !participant.user.nil? %></li>
+                <li class="avatar-inline"><%= cl_image_tag participant.user.photo, crop: :fill, class: "avatar-tiny" if !participant.user.nil? %></li>
                 <% end %>
-              </ul></div>
-              <div class="product-links">
-                 <!--  <a href=""><i class="fa fa-heart"></i></a>
-                  <a href=""><i class="fa fa-shopping-cart"></i></a> -->
-              </div>
+              </ul>
             </div>
+              <!-- <div class="product-links">
+                  <a href=""><i class="fa fa-heart"></i></a>
+                  <a href=""><i class="fa fa-shopping-cart"></i></a>
+              </div> -->
           </div>
         </div>
         <% end %>
