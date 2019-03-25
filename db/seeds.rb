@@ -49,7 +49,7 @@ task_array.each do |task|
   user.save
 end
 
-Attachment.create(name: "Yellow Hostel", task: Task.all.sample, description: "hostel purchased", attachment_url: "https://i.ytimg.com/vi/YQM0MdvrFW0/maxresdefault.jpg")
-Attachment.create(name: "Return Flights", task: Task.all.sample, description: "booked flights", attachment_url: "https://everybodyhatesatourist.net/wp-content/uploads/2015/06/american-reservation-codeshare.png")
-Attachment.create(name: "duomo", task: Task.all.sample, description: "bought duomo tickets", attachment_url: "https://i.ytimg.com/vi/YQM0MdvrFW0/maxresdefault.jpg")
-Attachment.create(name: "Hostel Milan", task: Task.all.sample, description: "hostel booked", attachment_url: "https://www.yogawinetravel.com/wp-content/uploads/2016/05/Florence-Italy-Duomo-ticket.jpg")
+Attachment.create(name: "Yellow Hostel", task: Task.all.sample, description: "hostel purchased", remote_photo_url: "https://i.ytimg.com/vi/YQM0MdvrFW0/maxresdefault.jpg")
+Attachment.create(name: "Return Flights", task: Task.all.sample, description: "booked flights", remote_photo_url: "https://everybodyhatesatourist.net/wp-content/uploads/2015/06/american-reservation-codeshare.png")
+Attachment.create(name: "duomo", task: Task.all.sample, description: "bought duomo tickets", remote_photo_url: "https://i.ytimg.com/vi/YQM0MdvrFW0/maxresdefault.jpg")
+Attachment.create(name: "Hostel Milan", task: Task.all.sample, description: "hostel booked", remote_photo_url: "https://www.yogawinetravel.com/wp-content/uploads/2016/05/Florence-Italy-Duomo-ticket.jpg")
