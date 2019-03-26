@@ -385,15 +385,16 @@
 
 <!--  -->
 <div id="id02" class="modal">
+    <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
   <div class="modal-content">
   <!--  -->
   <%= simple_form_for [@trip, @task] do |f| %>
-    <%= f.input :name %>
+    <%= f.input :name, input_html: {class: "form-control"} %>
 
-    <%= f.input :description, as: :text %>
-    <%= f.input :due_date, as: :datetime, required: true, input_html: {class: "datepicker"} %>
+    <%= f.input :description, as: :text, input_html: {class: "form-control"} %>
+    <%= f.input :due_date, as: :string, required: true, input_html: {class: "datepicker"} %>
     <div class="clearfix" style="display: flex">
-    <%= f.submit "Create new task", class: "btn btn-primary" %>
+    <%= f.submit "Save task", class: "btn-flat-task-modal" %>
         <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
 
     <% end %>
