@@ -10,7 +10,7 @@ Devise.setup do |config|
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '329ed89ae5474446186c96252b520b9491ae078eea53a2cb25f5dc44e9dc45e1bcc2d30afd1290c3c592f1a67a49a095f5593f11e3f0ac7042ca2fa4d26de7a3'
 
-  config.omniauth :facebook, '272724700296448', '418efb706a8a88d1c95c9b6d7de37ee7',
+  config.omniauth :facebook, ENV['FB_ID'], ENV['FB_SECRET'],
   scope: 'email',
   info_fields: 'email, first_name, last_name',
   image_size: 'square',  # 50x50, guaranteed ratio
