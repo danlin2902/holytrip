@@ -264,7 +264,7 @@
                   <%#= fa.input :name %>
 
                   <%#= fa.input :description, as: :text %>
-                  <%#= fa.input :due_date, as: :datetime, required: true, input_html: {class: "datepicker"} %>
+                  <%#= fa.input :due_date, as: :string, required: true, input_html: {class: "datepicker"} %>
                   <div class="clearfix" style="display: flex">
                     <%#= fa.submit "Save task", class: "btn btn-primary" %>
                     <button type="button" onclick="document.getElementById('<%#= task.id %>').style.display='none'" class="cancelbtn">Cancel</button>
@@ -397,7 +397,7 @@
     <%= f.input :name %>
 
     <%= f.input :description, as: :text %>
-    <%= f.input :due_date, as: :datetime, required: true, input_html: {class: "datepicker"} %>
+    <%= f.input :due_date, as: :string, required: true, input_html: {class: "datepicker"} %>
     <div class="clearfix" style="display: flex">
     <%= f.submit "Create new task", class: "btn btn-primary" %>
         <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
