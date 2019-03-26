@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between !important;
-  background: #e0e0e0;
+  background: #f4f4f4;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -47,12 +47,13 @@ a:hover {
 
 .navbar {
   height: 88px;
-  background-color: white;
+  background-color: #f4f4f4;
 }
 
 .navbar img {
   margin-right: 16px;
 }
+
 
 .button-create {
   margin-top: 1px;
@@ -68,8 +69,19 @@ a:hover {
   transition: background 0.3s ease;
 }
 
-
-.navbar-dash-title-task {
-  margin-left: 28px !important;
+.btn-flat {
+  color: white !important;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background-color: #3093EF !important;
+  transition: background 0.3s ease;
+  border: none !important;
 }
+
+
+
+
+// .navbar-dash-title-task {
+//   margin-left: 28px !important;
+// }
 

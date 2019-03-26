@@ -11,6 +11,9 @@ class Trip < ApplicationRecord
 
   after_create :assign_self_as_participant
 
+  validates :name, presence: true
+  validates :destination, presence: true
+
   private
 
   def assign_self_as_participant
