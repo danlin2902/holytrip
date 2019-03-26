@@ -36,31 +36,14 @@
 
 
 
-<div id="id01" class="modal">
-  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-  <form class="modal-content" action="<%= trip_participants_path %>" method="post">
-    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-    <div class="container">
-      <h1>Invite friends to your trip</h1>
-
-      <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" required>
-
-      <div class="clearfix">
-        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-        <button type="submit" class="signupbtn">Send invitation</button>
-      </div>
-    </div>
-  </form>
-</div>
 
 
 
 
 <!-- add tasks and people -->
 <div class="add-bar">
-  <button onclick="document.getElementById('id02')" class="btn-flat-task">+ Add task</button>
-  <button onclick="document.getElementById('id01')" class="btn-flat-people">Add people</button>
+  <button onclick="document.getElementById('id02').style.display='block'" class="btn-flat-task">+ Add task</button>
+  <button onclick="document.getElementById('id01').style.display='block'" class="btn-flat-people">Add people</button>
 </div>
 
 <!-- TASK MANAGER -->
@@ -72,8 +55,9 @@
     <!--        Task head                -->
     <div class="task-head">
       <h2><%= participant.user.name%></h2>
+      <h5><%= cl_image_tag participant.user.photo, crop: :fill, class: "avatar-tiny" if !participant.user.nil? %></h5>
       <% else %>
-        <h2> <%= "#{participant.email}, status: #{participant.status}" %></h2>
+        <h6> <%= "#{participant.email}, status: #{participant.status}" %></h6>
         <% end %>
     </div>
     <!--         task body               -->
@@ -111,6 +95,8 @@
       <% end %>
       <%# end %>
       <!--  -->
+
+
       <!--  -->
       <div class="task">
     <!--        Task head                -->
@@ -385,6 +371,23 @@
 
 <!-- MODAL BOX -->
 
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+  <form class="modal-content" action="<%= trip_participants_path %>" method="post">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <div class="container">
+      <h1>Invite friends to your trip</h1>
+
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" required>
+
+      <div class="clearfix">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="submit" class="signupbtn">Send invitation</button>
+      </div>
+    </div>
+  </form>
+</div>
 
 <!--  -->
 <div id="id02" class="modal">
