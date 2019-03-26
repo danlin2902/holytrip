@@ -1,3 +1,8 @@
+
+// .navbar {
+//   background-color: #E0E0E0 !important;
+// }
+
 .navbar-lewagon {
   justify-content: space-between !important;
   background: #f4f4f4;
@@ -33,12 +38,13 @@
 }
 
 .navbar-dash-title-task {
-  margin: 24px !important;
+  margin-left: 80px !important;
 }
 
 .dash-link {
   margin-top: 9px;
   margin-right: 28px;
+  font-weight: lighter;
 }
 
 a {
