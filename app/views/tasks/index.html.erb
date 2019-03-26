@@ -9,9 +9,10 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-      <li class="button-create">
-        <button onclick="document.getElementById('id01')" class="btn-flat">Add people</button>
+      <li class="dash-link">
+        <%= link_to "Dashboard", trips_path, :method => "get" %>
       </li>
+      <li class="nav-item dropdown">
       <% if current_user.facebook_picture_url %>
         <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
         <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
@@ -56,10 +57,11 @@
 
 
 
-<!-- add tasks -->
-
-<button onclick="document.getElementById('id02')" class="btn-flat-task">+ Add task</button>
-
+<!-- add tasks and people -->
+<div class="add-bar">
+  <button onclick="document.getElementById('id02')" class="btn-flat-task">+ Add task</button>
+  <button onclick="document.getElementById('id01')" class="btn-flat-people">Add people</button>
+</div>
 
 <!-- TASK MANAGER -->
 <div class="tasks-manager">
