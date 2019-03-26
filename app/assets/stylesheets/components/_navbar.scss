@@ -28,6 +28,12 @@
 .navbar h2 {
   font-weight: lighter;
   margin-left: 144px;
+  margin-top: 8px;
+
+}
+
+.navbar-dash-title-task {
+  margin: 24px !important;
 }
 
 .dash-link {
@@ -65,15 +71,16 @@ a:hover {
   color: white !important;
   padding: 8px 24px;
   border-radius: 4px;
-  background-color: #00D1AC !important;
+  background-color: #3093EF !important;
   transition: background 0.3s ease;
+  border: none !important;
 }
 
-.btn-flat {
+.btn-flat-create {
   color: white !important;
   padding: 8px 24px;
   border-radius: 4px;
-  background-color: #3093EF !important;
+  background-color: #00D1AC !important;
   transition: background 0.3s ease;
   border: none !important;
 }

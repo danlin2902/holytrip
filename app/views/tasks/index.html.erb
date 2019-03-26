@@ -10,7 +10,7 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
       <li class="button-create">
-        <button onclick="document.getElementById('id01')" class="btn-flat">Add people</button>
+
       </li>
       <li class="nav-item dropdown">
          <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
@@ -53,10 +53,11 @@
 
 
 
-<!-- add tasks -->
-
-<button onclick="document.getElementById('id02')" class="btn-flat-task">+ Add task</button>
-
+<!-- add tasks and people -->
+<div class="add-bar">
+  <button onclick="document.getElementById('id02')" class="btn-flat-task">+ Add task</button>
+  <button onclick="document.getElementById('id01')" class="btn-flat-people">Add people</button>
+</div>
 
 <!-- TASK MANAGER -->
 <div class="tasks-manager">
