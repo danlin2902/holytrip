@@ -73,7 +73,8 @@
 
     <div class="personal-tasks-container">
       <h2>My Tasks</h2>
-      <% current_user.tasks.each do |task| %>
+      <% content_item = current_user.tasks.order('due_date asc') %>
+      <% content_item.each do |task| %>
         <%= link_to trip_tasks_path(task.trip) do %>
         <ul class="personal-task">
           <li class="personal-task-content">
