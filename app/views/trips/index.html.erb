@@ -41,52 +41,55 @@
 <!-- <div class="container"> -->
 
   <div class="trip-index-container">
-
-    <div class="trip-index-cards">
-
-
-
-
-<!-- new card attempt -->
-      <% @trips.each do |trip| %>
-        <%= link_to trip_tasks_path(trip) do %>
-        <div class="product-card">
-          <div class="product-tumb">
-            <%= cl_image_tag(trip.photo, crop: :fill) %>
-          </div>
-          <div class="product-details">
-              <h4><%= link_to trip.name, trip_tasks_path(trip) %></h4>
-              <p><%= trip.destination %></p>
-              <div class="product-bottom-details product-price"><ul style="padding-left: 0;">
-                <% trip.participants.each do |participant| %>
-                <li class="avatar-inline" data-toggle="tooltip" data-placement="bottom" title=<%= participant.user.name if !participant.user.nil?  %>><%= cl_image_tag participant.user.photo, crop: :fill, class: "avatar-tiny" if !participant.user.nil? %></li>
-                <% end %>
-              </ul>
+    <div class="trip-card-box">
+      <h2>My Trips</h2>
+      <div class="trip-index-cards">
+        <% @trips.each do |trip| %>
+          <%= link_to trip_tasks_path(trip) do %>
+          <div class="product-card">
+            <div class="product-tumb">
+              <%= cl_image_tag(trip.photo, crop: :fill) %>
             </div>
-              <!-- <div class="product-links">
-                  <a href=""><i class="fa fa-heart"></i></a>
-                  <a href=""><i class="fa fa-shopping-cart"></i></a>
-              </div> -->
+            <div class="product-details">
+                <h4><%= link_to trip.name, trip_tasks_path(trip) %></h4>
+                <p><%= trip.destination %></p>
+                <div class="product-bottom-details product-price"><ul style="padding-left: 0;">
+                  <% trip.participants.each do |participant| %>
+                  <li class="avatar-inline" data-toggle="tooltip" data-placement="bottom" title=<%= participant.user.name if !participant.user.nil?  %>><%= cl_image_tag participant.user.photo, crop: :fill, class: "avatar-tiny" if !participant.user.nil? %></li>
+                  <% end %>
+                </ul>
+              </div>
+         <!--        <div class="product-links">
+                    <a href=""><i class="fa fa-trash-alt"></i></a>
+                    <i class="fal fa-trash-alt"></i>
+                    <a href=""><i class="fa fa-shopping-cart"></i></a>
+                </div> -->
+            </div>
           </div>
-        </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
 
 
 
     <div class="personal-tasks-container">
       <h2>My Tasks</h2>
+      <div class="task-box">
       <% content_item = current_user.tasks.order('due_date asc') %>
       <% content_item.each do |task| %>
         <%= link_to trip_tasks_path(task.trip) do %>
         <ul class="personal-task">
           <li class="personal-task-content">
-            <%= task.name %> | <%= task.trip.name %> | Deadline: <%= task.due_date.strftime("%m/%d")%>
+            <h4><%= task.name %></h4>
+             <p> <%= task.trip.name %>
+             | Deadline: <%= task.due_date.strftime("%m/%d")%>
+              </p>
           </li>
        </ul>
         <% end %>
       <% end %>
+      </div>
     </div>
   </div>
   <!-- </div> -->

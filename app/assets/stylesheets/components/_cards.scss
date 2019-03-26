@@ -68,13 +68,23 @@
   padding: 0px 12px 0px 12px;
 }
 
+.trip-card-box {
+  flex: 0 55%;
+  h2 {
+    margin-left: 62px;
+    font-size: 24px;
+    margin-top: 12px;
+    margin-bottom: -8px;
+    font-weight: 200;
+    color: #565656;
+  }
+}
 
 .trip-index-cards {
-  flex: 0 55%;
   display:flex;
   flex-wrap: wrap;
   align-content: flex-start;
-  padding: 0px 32px;
+  padding: 13px 32px;
 }
 
 .trip-index-container {
@@ -91,6 +101,7 @@
   color: #565656;
     h2 {
       font-size: 24px;
+      margin-left: -1px;
     }
     a {
       text-decoration: none;
@@ -116,23 +127,43 @@
   border: 1px solid rgb(235,235,235);
   list-style-type: none;
   border-radius: 4px;
-  height: 52px;
+  height: 68px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   color: gray;
   font-weight: lighter;
   font-size: 12px
 }
 
+.personal-task-content h4 {
+  font-size: 16px;
+  font-weight: 500;
+  display: block;
+  text-transform: uppercase;
+  color: #565656;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.personal-task:hover {
+  h4 {
+    color: #00d1af;
+    }
+  }
+
 .personal-task .personal-tasks-container {
 
   flex-grow: 1;
   padding: 0 24px;
-    text-decoration: none;
+  text-decoration: none;
+  color: #363636;
 
 }
 
 .personal-tasks-container li {
-  margin: 0;
+  margin-top: 16px;
+  margin-left: 12px;
+
+  color: #363636;
   line-height: 1.4;
   text-decoration: none;
 }
@@ -140,6 +171,14 @@
 .personal-tasks-container h2 {
     margin-bottom: 16px;
     font-weight: 200;
+}
+
+.personal-tasks-container p {
+  font-size: 11px;
+  line-height: 28px;
+  margin-bottom: 8px;
+  margin-top: -8px;
+  color: #999;
 }
 
 .card-right-info {
