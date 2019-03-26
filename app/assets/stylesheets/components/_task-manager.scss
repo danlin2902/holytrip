@@ -125,3 +125,14 @@ box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 
+
+.task-head {
+  display: flex;
+  justify-content:space-between;
+img {
+    width: 28px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+}
