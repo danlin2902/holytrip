@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
+  skip_before_action :verify_authenticity_token, :only => [:update]
+
   def index
     set_trip
     @incomplete = Task.find_incomplete(@trip)
@@ -35,7 +37,13 @@ class TasksController < ApplicationController
     else
       @task.update!(task_params)
     end
-    redirect_to trip_tasks_path(@trip)
+
+    respond_to do |format|
+      format.html {
+        redirect_to trip_tasks_path(@trip)
+      }
+      format.json { render json: @task }
+     end
   end
 
   def destroy

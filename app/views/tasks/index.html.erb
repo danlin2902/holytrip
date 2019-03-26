@@ -45,7 +45,7 @@
       <% @trip.participants.each do |participant| %>
         <% if !participant.user.nil? %>
     <!--      Task container             -->
-  <div class="task">
+  <div class="task" data-user-id="<%= participant.user_id %>">
     <!--        Task head                -->
     <div class="task-head">
       <h2><%= participant.user.name%></h2>
@@ -56,7 +56,7 @@
     </div>
     <!--         task body               -->
     <% @incomplete.each do |task| %>
-    <div class="task-body">
+    <div class="task-body" data-task-id="<%= task.id %>">
       <!--      task card                -->
 
       <div class="card-task">
