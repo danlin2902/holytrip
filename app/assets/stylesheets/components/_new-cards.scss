@@ -28,6 +28,8 @@ a {
 }
 
 
+
+
 .product-tumb {
     display: flex;
     align-items: center;
@@ -58,8 +60,10 @@ a {
   transition: 0.3s;
 }
 
-.product-details h4 a:hover {
-    color: #00D1AF;
+.product-details:hover {
+  h4 {
+    color: #00d1af;
+    }
 }
 
 .product-details p {

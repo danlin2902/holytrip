@@ -50,6 +50,8 @@
     <div class="task-head">
       <h2><%= participant.user.name%></h2>
       <h5><%= cl_image_tag participant.user.photo, crop: :fill, class: "avatar-tiny" if !participant.user.nil? %></h5>
+        <% else %>
+        <% next %>
         <% end %>
     </div>
     <!--         task body               -->
