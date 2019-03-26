@@ -15,8 +15,12 @@
         <%= button_to "Create a Trip", new_trip_path, :method => "get", class: "btn-flat" %>
       </li>
       <li class="nav-item dropdown">
+      <% if current_user.facebook_picture_url %>
         <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
-<%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+      <% else %>
+        <%= cl_image_tag current_user.photo, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% end %>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         </div>
@@ -73,7 +77,8 @@
 
     <div class="personal-tasks-container">
       <h2>My Tasks</h2>
-      <% current_user.tasks.each do |task| %>
+      <% content_item = current_user.tasks.order('due_date asc') %>
+      <% content_item.each do |task| %>
         <%= link_to trip_tasks_path(task.trip) do %>
         <ul class="personal-task">
           <li class="personal-task-content">
