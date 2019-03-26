@@ -10,9 +10,8 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
       <li class="button-create">
-      <!-- <li class="btn-flat">
-        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Add people</button>
-      </li> -->
+        <button onclick="document.getElementById('id01')" class="btn-flat">Add people</button>
+      </li>
       <% if current_user.facebook_picture_url %>
         <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
         <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
@@ -53,6 +52,13 @@
     </div>
   </form>
 </div>
+
+
+
+
+<!-- add tasks -->
+
+<button onclick="document.getElementById('id02')" class="btn-flat-task">+ Add task</button>
 
 
 <!-- TASK MANAGER -->
@@ -377,7 +383,7 @@
 
 <!-- MODAL BOX -->
 
-<button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">new task</button>
+
 <!--  -->
 <div id="id02" class="modal">
   <div class="modal-content">

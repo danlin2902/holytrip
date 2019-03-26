@@ -3,6 +3,8 @@ class Task < ApplicationRecord
   belongs_to :trip
   has_many :attachments, dependent: :destroy
 
+  validates :name, presence: true
+
   def self.find_incomplete(trip)
     Task.where(trip_id: trip.id, done_at: nil)
   end
