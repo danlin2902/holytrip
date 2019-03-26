@@ -1,6 +1,6 @@
 <!-- navbar -->
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to root_path, class: "navbar-brand" do %>
+  <%= link_to trips_path, class: "navbar-brand" do %>
 <i class="fa fa-map-marked-alt"></i>
   <% end %>
 
@@ -50,8 +50,6 @@
     <div class="task-head">
       <h2><%= participant.user.name%></h2>
       <h5><%= cl_image_tag participant.user.photo, crop: :fill, class: "avatar-tiny" if !participant.user.nil? %></h5>
-      <% else %>
-        <h6> <%= "#{participant.email}, status: #{participant.status}" %></h6>
         <% end %>
     </div>
     <!--         task body               -->
