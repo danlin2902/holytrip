@@ -17,14 +17,21 @@ const searchAlgoliaPlaces = (query) => {
     });
 };
 
+const form = document.querySelector('.create-trip-first > form')
 const input = document.querySelector(".search");
-form.addEventListener("keyup", (event) => {
-  event.preventDefault();
-  list.innerHTML = "";
-  searchAlgoliaPlaces(form.value);
-});
+
+if (form) {
+
+  form.addEventListener("keyup", (event) => {
+    event.preventDefault();
+    document.querySelector('#results').innerHTML = "";
+    searchAlgoliaPlaces(form.value);
+  });
 
 
 
 
+
+
+}
 export { searchAlgoliaPlaces };
