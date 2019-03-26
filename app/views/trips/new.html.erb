@@ -46,10 +46,10 @@
 <div class="create-trip-first col-md-4">
 
   <%= simple_form_for @trip do |f| %>
-    <%= f.input :name, required: true, autofocus: true, input_html: { class: "form-control", placeholder: "Name your trip" } %>
-    <%= f.input :destination, input_html: {id: "input-map", type: "serch", name: "trip[destination]", class: "form-control", placeholder: "Where are we going?"} %>
-    <%= f.input :start_date, as: :string, required: true, input_html: {class: "datepicker", placeholder: "Pick start date"} %>
-    <%= f.input :end_date, as: :string, required: true, input_html: {class: "datepicker", placeholder: "Pick end date"} %>
+    <%= f.input :name, required: true, autofocus: true, input_html: { class: "form-control form-control-lg", placeholder: "Name your trip" } %>
+    <%= f.input :destination, input_html: {id: "input-map", type: "serch", name: "trip[destination]", class: "form-control form-control-lg", placeholder: "Where are we going?"} %>
+    <%= f.input :start_date, as: :string, required: true, input_html: {class: "datepicker form-control-lg", placeholder: "Pick start date"} %>
+    <%= f.input :end_date, as: :string, required: true, input_html: {class: "datepicker form-control-lg", placeholder: "Pick end date"} %>
 
     <%= f.input :photo %>
     <%= f.input :photo_cache, as: :hidden %>
@@ -65,7 +65,7 @@
 
 <!-- MAP DIV -->
 
-<p>And you are going to</p>
+<p>Check out the map</p>
 
 <div id="map-example-container"></div>
 
@@ -174,8 +174,8 @@
 
 <div class="create-trip-third col-md-4">
 
-  <p>Type friends emails you want to invite <i class="material-icons">add_circle_outline
-</i></p>
+  <p>Invite your friends <!-- <i class="material-icons">add_circle_outline
+</i> --></p>
   <%# 10.times do |i| %>
   <ul id="invite-friends">
     <li><%= text_field_tag 'emails[]', nil, class: 'special_input', placeholder: "Enter an email of your friend" %></li>
@@ -185,7 +185,7 @@
     <li><%= text_field_tag 'emails[]', nil, class: 'special_input', placeholder: "Enter an email of your friend" %></li>
   </ul>
   <%# end %>
-  <%= f.submit "Create trip", class: "btn btn-create" %>
+  <%= f.submit "Create trip", class: "btn btn-create btn-lg" %>
   <% end %>
 </div>
 

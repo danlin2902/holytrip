@@ -6,7 +6,7 @@
   margin-top: 5%;
   padding: 10px;
   // border: 1px solid #00D1AC;
-  background-color: white;
+  background-color: #fffdfa;
   box-shadow: 1px 2px 8px #888888;
   font-size: 18px;
   .row {
@@ -44,9 +44,24 @@
   outline: none;
   box-shadow: none;
 }
-
+  .form-control-label {
+    font-family: Raleway;
+    font-size: 1.2em;
+  }
+  p {
+    font-family: Raleway;
+    font-size: 1.2em;
+  }
 
 }
+
+.form-control {
+  box-shadow:         inset 0 0 0.5px #00D1AC;
+}
+.special_input {
+  box-shadow:         inset 0 0 0.5px #00D1AC;
+}
+
 
 #invite-friends {
   list-style-type:none;
