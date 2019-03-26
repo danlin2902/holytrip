@@ -369,11 +369,11 @@
   <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
   <form class="modal-content" action="<%= trip_participants_path %>" method="post">
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-    <div class="container">
+    <div class="modal-container">
       <h1>Invite friends to your trip</h1>
 
-      <label for="email"><b>Email</b></label>
-      <input class: "form-control" type="text" placeholder="Enter Email" name="email" required>
+      <label class="form-control-label" id="label-ppl" for="email"><b>Email</b></label>
+      <input class="form-control" id="email-ppl" type="text" name="email" required>
 
       <div class="clearfix" style="display: flex">
         <button type="submit" class="btn-flat-task-modal">Send invitation</button>
@@ -389,6 +389,7 @@
   <div class="modal-content">
   <!--  -->
   <%= simple_form_for [@trip, @task] do |f| %>
+  <h1>Manage your tasks</h1>
     <%= f.input :name, input_html: {class: "form-control"} %>
 
     <%= f.input :description, as: :text, input_html: {class: "form-control"} %>

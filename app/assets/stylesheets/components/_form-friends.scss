@@ -44,7 +44,8 @@ input[type=text]:focus, input[type=password]:focus {
 
 #task_name,
 #task_description,
-#flatpickr-input {
+#flatpickr-input,
+#email-ppl {
   background-color: transparent !important;
   border: 1px solid #00D1AC;
   margin-bottom: 5px;
@@ -82,8 +83,8 @@ button:hover {
 }
 
 /* Add padding to container elements */
-.container {
-    padding: 16px;
+.modal-container {
+  padding: 50px 120px 10px 120px;
 }
 
 
@@ -141,7 +142,7 @@ button:hover {
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: #F4F4F4;
-    padding-top: 50px;
+    padding-top: 30px;
 }
 
 /* Modal Content/Box */
@@ -188,6 +189,11 @@ hr {
   font-size: 1.2em;
 }
 
+#label-ppl {
+  font-family: Raleway !important;
+  font-size: 1.2em !important;
+  font-weight: normal !important;
+}
 /* Change styles for cancel button and signup button on extra small screens */
 @media screen and (max-width: 300px) {
     .cancelbtn, .signupbtn {
