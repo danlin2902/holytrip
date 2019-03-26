@@ -4,6 +4,7 @@
   "dependencies": {
     "@material/list": "^1.0.1",
     "@rails/webpacker": "^4.0.2",
+    "@shopify/draggable": "^1.0.0-beta.8",
     "bootstrap": "^4.3.1",
     "flatpickr": "^4.5.7",
     "jquery": "^3.3.1",
