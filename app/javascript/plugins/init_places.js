@@ -20,18 +20,18 @@ const searchAlgoliaPlaces = (query) => {
 const form = document.querySelector('.create-trip-first > form')
 const input = document.querySelector(".search");
 
-if (form) {
+// if (form) {
 
-  form.addEventListener("keyup", (event) => {
-    event.preventDefault();
-    document.querySelector('#results').innerHTML = "";
-    searchAlgoliaPlaces(form.value);
-  });
-
-
+//   form.addEventListener("keyup", (event) => {
+//     event.preventDefault();
+//     document.querySelector('#results').innerHTML = "";
+//     searchAlgoliaPlaces(form.value);
+//   });
 
 
 
 
-}
+
+
+// }
 export { searchAlgoliaPlaces };
