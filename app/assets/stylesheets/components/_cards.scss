@@ -190,7 +190,12 @@
 .personal-tasks-container a {
   text-decoration: none !important;
 }
+.task-name-deadline {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
 
+}
 
 @media screen and (max-width: 500px) {
   .personal-tasks-container {
