@@ -9,8 +9,8 @@
      height: -webkit-fill-available;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    // min-height: 85vh;
+    justify-content: space-between;
+
 }
 
 
@@ -19,9 +19,9 @@
 .task{
   outline: none;
     width: 25%;
-    margin: 2px auto;
+    // margin: 2px auto;
     padding: 20px;
-    height: 46vh;
+    // height: 46vh;
     position: relative;
 }
 // task head
