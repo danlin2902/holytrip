@@ -145,3 +145,48 @@ box-shadow: 0 0 15px rgba(0,0,0,0.2);
       border: 2px solid white;
   }
 }
+
+
+
+@media screen and (max-width: 500px) {
+  .task-box{
+    width: 97%;
+    padding: 0px;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  .tasks-manager{
+    height: -webkit-fill-available;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    // justify-content: space-around;
+    flex-direction: column !important;
+    // min-height: 85vh;
+  }
+  .task{
+
+    width: 80%;
+    margin: 2px auto;
+    padding: 20px;
+    height: 30vh;
+    overflow: scroll;
+    position: relative;
+  }
+  .task-head {
+  // display: flex;
+//   justify-content:space-between;
+//   img {
+//       width: 28px;
+//       border-radius: 50%;
+//       border: 2px solid white;
+//   }
+// }
+    margin-top: 10px;
+ }
+ .task-body{
+  // height: 80%;
+  margin-bottom: 15px !important;
+
+  }
+
+}
