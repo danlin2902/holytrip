@@ -39,6 +39,7 @@
   end
 
   def destroy
+    @trip = Trip.find(params[:id])
     @trip.attachments.destroy_all
     @trip.tasks.destroy_all
     @trip.participants.destroy_all
