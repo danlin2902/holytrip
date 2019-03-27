@@ -92,9 +92,9 @@ a:hover {
 }
 
 
+@media screen and (max-width: 500px) {
 
-
-// .navbar-dash-title-task {
-//   margin-left: 28px !important;
-// }
-
+.navbar-dash-title {
+  margin-left: 15px !important;
+  }
+}
