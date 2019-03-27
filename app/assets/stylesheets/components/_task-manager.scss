@@ -1,7 +1,6 @@
-
-.add-bar {
-  margin-top: 12px;
-  margin-bottom: -4px;
+// under navbar buttons
+.dash-link a:hover{
+      color: #00D1AC !important;
 }
 
 // task manager
@@ -67,7 +66,8 @@
     margin-bottom: 25px;
 }
 .task-box{
-  width: 100%;
+  width: 75%;
+  padding: 15px;
 
 }
 
@@ -84,7 +84,7 @@
   text-align: left;
 }
 .icon{
-      opacity: 0.6;
+      opacity: 0.7;
    font-size: medium;
     font-weight: 100 !important;
     top: -50px;
@@ -104,6 +104,9 @@ box-shadow: 0 0 15px rgba(0,0,0,0.2);
         font-size: x-small;
         overflow: scroll;
 }
+.dropdown-toggle::after{
+  border: none !important;
+}
 .card-task p {
   font-size: 12px;
   opacity: .7;
@@ -116,7 +119,7 @@ box-shadow: 0 0 15px rgba(0,0,0,0.2);
 
 
 .card-task .card-task-infos {
-  padding: 16px;
+
   display: flex;
   justify-content: space-between;
   align-items: flex-end;

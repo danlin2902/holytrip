@@ -1,5 +1,6 @@
 
 .modal {
+
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -10,13 +11,17 @@
     overflow: auto; /* Enable scroll if needed */
     background-color: rgba(0, 0, 0, .3);
     padding-top: 50px;
+    border-radius: 5px;
 }
 
 //
 .modal-content {
+  border-radius: 5px !important;
+  border: none !important;
+  transform: scale(0.5, 0.5);
     background-color: rgba(0, 0, 0, .3);
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-    border: 1px solid #888;
+    border: none;
     height: 50vh;
     width: 70% !important; /* Could be more or less, depending on screen size */
 }
@@ -28,4 +33,8 @@
     font-size: 40px;
     font-weight: bold;
     color: #f1f1f1;
+}
+#new_task{
+  border: none;
+  border-radius: 5px;
 }
