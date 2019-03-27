@@ -63,7 +63,7 @@
 
         <div class="card-task-infos">
           <div class="task-box">
-          <% if task.user_id == participant.user_id %>
+          <% if task.user_id == participant.user_id && task.name %>
 
             <h2 class="task-title"><%= task.name %></h2>
 
@@ -122,6 +122,9 @@
       <h2  >Completed Tasks</h2>
     </div>
     <!--         task body               -->
+
+    <% if @complete.any? %>
+
     <div class="task-body">
       <!--      task card                -->
 
@@ -129,7 +132,6 @@
 
         <div class="card-task-infos">
           <div class="task-box">
-
         <% @complete.each do |task| %>
           <div class="task-content">
 
@@ -138,12 +140,13 @@
             <p class="task-description"><%= task.description %></p>
           </div>
 
-
             <% end %>
           </div>
         </div>
       </div>
     </div>
+    <% end %>
+
   </div>
 
 
