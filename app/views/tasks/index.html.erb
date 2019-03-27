@@ -70,15 +70,39 @@
             <p class="task-description"><%= task.description %></p>
           <div class="icon dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-bars ">
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-menu dropdown-menu-left ">
+
+                <a class="dropdown-item" id="editButton" onclick="document.querySelector('.edit-modal').style.display='block'" style="width:auto;">Edit</a>
+                <a class="dropdown-item" href="#">Files</a>
                 <div role="separator" class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Delete task</a>
+                <a class="dropdown-item" id="deleteButton">Delete</a>
               </div>
             </i>
           </div>
+          <!--  -->
+          <div id="<%= task.id %>" class="modal edit-modal">
+                <div class="modal-content">
+                  <!--  -->
+                  <%= simple_form_for [@trip, task] do |fa| %>
+                  <%= fa.input :name %>
+
+                  <%= fa.input :description, as: :text %>
+                  <%= fa.input :due_date, as: :string, required: true, input_html: {class: "datepicker"} %>
+                  <div class="clearfix" style="display: flex">
+                    <%= fa.submit "Save task", class: "btn btn-primary" %>
+                    <button type="button" onclick="document.getElementById('<%= task.id %>').style.display='none'" class="cancelbtn">Cancel</button>
+
+                    <% end %>
+                    <!--  -->
+
+                  </div>
+                </div>
+
+
+
+
+              </div>
+          <!--  -->
             <% end %>
           </div>
         </div>
@@ -405,6 +429,7 @@
   </div>
   </div>
 
+
 <%# end %>
 
 
@@ -412,6 +437,31 @@
 
 
 
+<!--  -->
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+  <form class="modal-content" action="<%= trip_participants_path %>" method="post">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <div class="modal-container">
+      <h1>Invite friends to your trip</h1>
+
+      <label class="form-control-label" id="label-ppl" for="email"><b>Email</b></label>
+      <input class="form-control" id="email-ppl" type="text" name="email" required>
+
+      <div class="clearfix" style="display: flex">
+        <button type="submit" class="btn-flat-task-modal">Send invitation</button>
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!--  -->
+
+<button >Edit task</button>
+
+
+<!--  -->
 <div class="footer">
   <div class="footer-links">
     <a href="#"><i class="fab fa-github"></i></a>
@@ -431,18 +481,8 @@
 
 <script>
 
-  $( ".draggable-tasks" ).draggable({
-    helper: 'clone'
-  });
 
-  $( ".droppable-tasks" ).droppable({
-    drop: function() {
-      // let ui = document.querySelector("");
-      // var id = $(li.draggable).attr('id');
-      // console.log(id);
 
-    }
-  });
 </script>
 
 <%# end %>
