@@ -144,3 +144,13 @@ box-shadow: 0 0 15px rgba(0,0,0,0.2);
       border: 2px solid white;
   }
 }
+
+
+
+@media screen and (max-width: 500px) {
+  .task-box{
+    width: 97%;
+    padding: 0px;
+    margin-right: 0;
+  }
+}
