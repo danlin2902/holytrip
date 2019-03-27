@@ -31,7 +31,7 @@ trip2.save
 trip3.save
 trip4.save
 
-Participant.create(user: jacob, trip: trip1, status: "pending", email: jacob.email)
+Participant.create(user: jacob, trip: trip1, status: "confirmed", email: jacob.email)
 Participant.create(user: regi, trip: trip1, status: "confirmed", email: regi.email)
 Participant.create(user: daniel, trip: trip2, status: "denied", email: daniel.email)
 Participant.create(user: marco, trip: trip2, status: "confirmed", email: marco.email)

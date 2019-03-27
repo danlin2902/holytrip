@@ -58,7 +58,10 @@
                 <p><%= trip.destination %></p>
                 <div class="product-bottom-details product-price"><ul style="padding-left: 0;">
                   <% trip.participants.each do |participant| %>
-                  <li class="avatar-inline" data-toggle="tooltip" data-placement="bottom" title=<%= participant.user.name if !participant.user.nil?  %>><%= cl_image_tag participant.user.photo, crop: :fill, class: "avatar-tiny" if !participant.user.nil? %></li>
+                  <% if participant.status != "pending" %>
+                  <li class="avatar-inline" data-toggle="tooltip" data-placement="bottom" title=<%= participant.user.name if !participant.user.nil?  %>><%= cl_image_tag participant.user.photo, crop: :fill, class: "avatar-tiny" if !participant.user.nil? %>
+                  </li>
+                  <% end %>
                   <% end %>
                 </ul>
               </div>
