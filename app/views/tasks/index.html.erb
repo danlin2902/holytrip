@@ -37,13 +37,13 @@
 <!-- add tasks and people -->
 <div class="add-bar">
   <button onclick="document.getElementById('id02').style.display='block'" class="btn-flat-task">+ Add task</button>
-  <button onclick="document.getElementById('id01').style.display='block'" class="btn-flat-people">Add people</button>
+  <button onclick="document.getElementById('id01').style.display='block'" class="btn-flat-people">+ Add people</button>
 </div>
 
 <!-- TASK MANAGER -->
 <div class="tasks-manager">
       <% @trip.participants.each do |participant| %>
-        <% if !participant.user.nil? %>
+        <% if participant.status != "pending" %>
     <!--      Task container             -->
   <div class="task" data-user-id="<%= participant.user_id %>">
     <!--        Task head                -->
@@ -59,11 +59,11 @@
     <div class="task-body" data-task-id="<%= task.id %>">
       <!--      task card                -->
 
+          <% if task.user_id == participant.user_id && task.name %>
       <div class="card-task">
 
         <div class="card-task-infos">
           <div class="task-box">
-          <% if task.user_id == participant.user_id && task.name %>
 
             <h2 class="task-title"><%= task.name %></h2>
 
@@ -73,7 +73,7 @@
               <div class="dropdown-menu dropdown-menu-left ">
 
                 <a class="dropdown-item" id="editButton" onclick="document.querySelector('.edit-modal').style.display='block'" style="width:auto;">Edit</a>
-                <a class="dropdown-item" href="#">Files</a>
+                <a class="dropdown-item" href="#">Attachments</a>
                 <div role="separator" class="dropdown-divider"></div>
                 <a class="dropdown-item" id="deleteButton">Delete</a>
               </div>
@@ -103,10 +103,10 @@
 
               </div>
           <!--  -->
-            <% end %>
           </div>
         </div>
       </div>
+            <% end %>
     </div>
     <% end %>
   </div>
