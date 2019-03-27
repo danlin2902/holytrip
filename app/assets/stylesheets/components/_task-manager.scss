@@ -153,4 +153,20 @@ box-shadow: 0 0 15px rgba(0,0,0,0.2);
     padding: 0px;
     margin-right: 0;
   }
+  .tasks-manager{
+    height: -webkit-fill-available;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: column;
+    // min-height: 85vh;
+  }
+  .task{
+
+    width: 80%;
+    margin: 2px auto;
+    padding: 20px;
+    height: 46vh;
+    position: relative;
+  }
 }
