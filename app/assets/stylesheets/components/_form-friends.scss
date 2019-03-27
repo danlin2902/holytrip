@@ -89,6 +89,8 @@ button:hover {
 
 
 .add-bar {
+      margin: 12px auto 4px auto;
+    width: 97%;
   display: flex;
   justify-content: space-between;
 }
@@ -98,7 +100,7 @@ button:hover {
   border-radius: 4px;
   background-color: #00D1AC !important;
   transition: background 0.3s ease;
-  margin-left: 73px;
+  // margin-left: 73px;
   margin-bottom: 16px;
   margin-top: 12px;
   border: none !important;
@@ -124,7 +126,7 @@ button:hover {
   border-radius: 4px;
   background-color: #3093EF !important;
   transition: background 0.3s ease;
-  margin-right: 73px;
+  // margin-right: 73px;
   margin-bottom: 16px;
   margin-top: 12px;
   border: none !important;
