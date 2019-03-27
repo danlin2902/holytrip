@@ -17,7 +17,7 @@
 // tasks container
 
 .task{
-
+  outline: none;
     width: 25%;
     margin: 2px auto;
     padding: 20px;
@@ -47,14 +47,14 @@
 // task body
 .task-body{
   // height: 80%;
-
+  outline: none;
 
 }
 // task card
 .card-task {
       border-radius: 4px;
        margin-top: 1.2vh;
-  overflow: scroll;
+  // overflow: scroll;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 
@@ -84,7 +84,7 @@
   text-align: left;
 }
 .icon{
-      opacity: 0.7;
+    color: rgba(0, 0, 0, .7);
    font-size: medium;
     font-weight: 100 !important;
     top: -50px;
@@ -95,14 +95,15 @@
     text-align: right;
 }
 .dropdown-menu.show{
+  font-family: sans-serif;
 border: none;
 border-radius: 4px;
 box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    left: 28px;
-    width: 100%;
-    left: -16px !important;
-        font-size: x-small;
-        overflow: scroll;
+
+     min-width: max-content !important;
+
+        font-size: smaller;
+            transform: translate3d(0px, 24px, 0px) !important;
 }
 .dropdown-toggle::after{
   border: none !important;
