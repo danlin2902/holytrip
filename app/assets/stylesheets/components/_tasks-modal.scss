@@ -14,17 +14,28 @@
     border-radius: 5px;
 }
 
+.modal-container h1 {
+  font-size: 34px;
+  margin-bottom: 32px;
+  margin-top: 34px;
+
+}
+
 //
 .modal-content {
+  // margin-top: 148px;
+
   border-radius: 5px !important;
   border: none !important;
   transform: scale(0.7, 0.7);
     background-color: rgba(0, 0, 0, .3);
-    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    margin: 10% auto 10% auto; /* 5% from the top, 15% from the bottom and centered */
     border: none;
-    height: 50vh;
+    height: 60vh;
     width: 50% !important; /* Could be more or less, depending on screen size */
 }
+
+
 .modal-content-friends{
    border-radius: 5px !important;
   border: none !important;
@@ -37,16 +48,22 @@
 }
 #email-ppl{
   border-radius: 5px;
+  height: 2.75em !important;
+
 }
+
 //
-.close {
-    position: absolute;
-    right: 35px;
-    top: 15px;
-    font-size: 40px;
-    font-weight: bold;
-    color: #f1f1f1;
-}
+// .close {
+//     position: relative;
+//     right: 14.4em;
+//     top: 5em !important;
+//     font-size: 30px !important;
+//     font-weight: bold !important;
+//     color: black !important;
+//     opacity: 0.4;
+//     z-index: 1000;
+// }
+
 #new_task{
   border: none;
   border-radius: 5px;

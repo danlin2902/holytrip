@@ -31,16 +31,16 @@ trip2.save
 trip3.save
 trip4.save
 
-Participant.create(user: jacob, trip: trip1, status: "pending", email: jacob.email)
+Participant.create(user: jacob, trip: trip1, status: "confirmed", email: jacob.email)
 Participant.create(user: regi, trip: trip1, status: "confirmed", email: regi.email)
-Participant.create(user: daniel, trip: trip2, status: "denied", email: daniel.email)
+Participant.create(user: daniel, trip: trip2, status: "confirmed", email: daniel.email)
 Participant.create(user: marco, trip: trip2, status: "confirmed", email: marco.email)
-Participant.create(user: daniel, trip: trip3, status: "denied", email: daniel.email)
+Participant.create(user: daniel, trip: trip3, status: "confirmed", email: daniel.email)
 Participant.create(user: marco, trip: trip3, status: "confirmed", email: marco.email)
-Participant.create(user: daniel, trip: trip4, status: "denied", email: daniel.email)
+Participant.create(user: daniel, trip: trip4, status: "confirmed", email: daniel.email)
 Participant.create(user: marco, trip: trip4, status: "confirmed", email: marco.email)
 
-task_array = ["book plane tickets", "book the hostel", "buy museum tickets", "make sure your passport is valid", "get visa approved", "buy adapters for locale", "look for daytime activities", "check nightlife", "rent car"]
+task_array = ["look for best free tours", "book your plane tickets", "book the hostel", "book hotel for first night", "buy museum tickets", "make sure your passport is valid", "get visa approved", "buy adapters for locale", "look for daytime activities", "check nightlife", "rent car", "book hotel for last night", "call ahead for reservations at restaurant", "buy tickets for church entry", "buy match tickets", "put activities in calendar", "find store to buy cheap gifts", "research events going on"]
 
 task_array.each do |task|
   trip = Trip.all.sample
