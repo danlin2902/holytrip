@@ -41,8 +41,11 @@
 </div>
 
 <!-- TASK MANAGER -->
+
+
 <div class="tasks-manager">
-      <% @trip.participants.each do |participant| %>
+      <%# @trip.participants.each do |participant| %>
+      <% @trip.uniq_particpants.each do |participant| %>
         <% if participant.status != "pending" %>
     <!--      Task container             -->
   <div class="task" data-user-id="<%= participant.user_id %>">

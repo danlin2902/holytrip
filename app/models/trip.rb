@@ -14,6 +14,10 @@ class Trip < ApplicationRecord
   validates :name, presence: true
   validates :destination, presence: true
 
+  def uniq_particpants
+    self.participants.select('DISTINCT ON (participants.user_id) participants.user_id, participants.status, participants.id, participants.trip_id')
+  end
+
   private
 
   def assign_self_as_participant
