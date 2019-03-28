@@ -83,28 +83,7 @@
             </i>
           </div>
           <!--  -->
-          <div id="<%= task.id %>" class="modal edit-modal">
-                <div class="modal-content">
-                  <!--  -->
-                  <%= simple_form_for [@trip, task] do |fa| %>
-                  <%= fa.input :name %>
 
-                  <%= fa.input :description, as: :text %>
-                  <%= fa.input :due_date, as: :string, required: true, input_html: {class: "datepicker"} %>
-                  <div class="clearfix" style="display: flex">
-                    <%= fa.submit "Save task", class: "btn btn-primary" %>
-                    <button type="button" onclick="document.getElementById('<%= task.id %>').style.display='none'" class="cancelbtn">Cancel</button>
-
-                    <% end %>
-                    <!--  -->
-
-                  </div>
-                </div>
-
-
-
-
-              </div>
           <!--  -->
           </div>
         </div>
