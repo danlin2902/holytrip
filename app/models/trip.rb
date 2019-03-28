@@ -15,7 +15,7 @@ class Trip < ApplicationRecord
   validates :destination, presence: true
 
   def uniq_particpants
-    self.participants.select('DISTINCT ON (participants.user_id) participants.user_id, participants.status, participants.id, participants.trip_id')
+    self.participants.select('DISTINCT ON (participants.user_id) participants.user_id, participants.status, participants.id, participants.trip_id').where.not(user_id: nil)
   end
 
   private
