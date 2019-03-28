@@ -169,7 +169,7 @@ hr {
     top: 4.6em !important;
     font-size: 30px !important;
     color: black !important;
-    opacity: 0.4;
+    opacity: 0.3;
     z-index: 1000;
 }
 
@@ -177,6 +177,7 @@ hr {
 .close:focus {
     color: #f44336;
     cursor: pointer;
+    opacity: 0.7;
 }
 
 /* Clear floats */

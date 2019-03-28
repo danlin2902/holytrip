@@ -34,6 +34,8 @@
     height: 60vh;
     width: 50% !important; /* Could be more or less, depending on screen size */
 }
+
+
 .modal-content-friends{
    border-radius: 5px !important;
   border: none !important;
@@ -51,16 +53,16 @@
 }
 
 //
-.close {
-    position: relative;
-    right: 14.4em;
-    top: 5em !important;
-    font-size: 30px !important;
-    font-weight: bold !important;
-    color: black !important;
-    opacity: 0.4;
-    z-index: 1000;
-}
+// .close {
+//     position: relative;
+//     right: 14.4em;
+//     top: 5em !important;
+//     font-size: 30px !important;
+//     font-weight: bold !important;
+//     color: black !important;
+//     opacity: 0.4;
+//     z-index: 1000;
+// }
 
 #new_task{
   border: none;

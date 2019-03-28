@@ -415,11 +415,11 @@
 
 <!--  -->
 <div id="id02" class="modal">
-    <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">X</span>
+    <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
   <div class="modal-content">
   <!--  -->
   <%= simple_form_for [@trip, @task] do |f| %>
-  <h1>Manage your tasks</h1>
+  <h1>Add your tasks</h1>
     <%= f.input :name, input_html: {class: "form-control"} %>
 
 
