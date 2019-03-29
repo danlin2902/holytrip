@@ -37,6 +37,14 @@
     border-radius: 4px;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
+
+.completed-task-head {
+  background-color: #31D1AC !important;
+  h2 {
+    width: 100%;
+  }
+}
+
 .task-head h2{
   font-size: 18px;
   font-weight: 300;
